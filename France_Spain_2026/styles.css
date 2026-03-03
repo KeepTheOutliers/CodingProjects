@@ -540,7 +540,7 @@ li { margin-bottom: 4px; }
   display: flex;
   align-items: center;
   margin: 20px 0 44px;
-  padding: 12px 8px 0;
+  padding: 12px 8px 40px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
