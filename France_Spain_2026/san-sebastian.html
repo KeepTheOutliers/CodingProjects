@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Sebastián — France & Spain 2026</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+
+<!-- ========== HEADER ========== -->
+<div class="hero">
+  <h1>San Sebastián</h1>
+  <div class="subtitle">May 22–25, 2026 · 3 Nights · Basque Country</div>
+</div>
+
+<!-- ========== QUICK REFERENCE ========== -->
+<section>
+<h2>Quick Reference</h2>
+<dl class="ref-card">
+  <div>
+    <dt>Lodging</dt>
+    <dd><em>Not yet booked</em><br>Target: Parte Vieja (Old Town) or Centro area</dd>
+  </div>
+  <div>
+    <dt>Arrival</dt>
+    <dd>Thu May 22 · Drive from Lescun<br>~2.5 hours via Oloron / Pamplona</dd>
+  </div>
+  <div>
+    <dt>Departure</dt>
+    <dd>Sun May 25 · Drive to Biarritz (~35 min)<br>Drop rental car → INOUI to Paris</dd>
+  </div>
+  <div>
+    <dt>Language</dt>
+    <dd>Spanish + Basque (Euskara)<br>English widely spoken in tourist areas</dd>
+  </div>
+  <div>
+    <dt>Currency</dt>
+    <dd>Euro (€) — same as France</dd>
+  </div>
+  <div>
+    <dt>Emergency</dt>
+    <dd>112 (EU general) · 091 (Policía Nacional) · 092 (Local police)</dd>
+  </div>
+</dl>
+</section>
+
+<!-- ========== AREA MAP ========== -->
+<section>
+<h2>City Map</h2>
+<div id="map-area" class="day-map" style="height:450px;"></div>
+<div class="map-legend">
+  <span>🏖️ Beaches</span>
+  <span>🏔️ Viewpoints</span>
+  <span>🍽️ Food</span>
+  <span>🏘️ Neighborhoods</span>
+</div>
+</section>
+
+<!-- ========== WEATHER ========== -->
+<section>
+<h2>Weather & Light</h2>
+<div style="display:flex; flex-wrap:wrap; gap:16px; margin:0 0 12px 0;">
+  <div style="flex:1; min-width:260px; background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:18px 22px;">
+    <div style="font-size:0.82em; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:10px;">Temperature · Late May San Sebastián</div>
+    <div style="display:flex; gap:20px; align-items:baseline;">
+      <div>
+        <span style="font-size:1.5em; font-weight:700; color:var(--navy);">52–68°F</span>
+        <span style="font-size:0.88em; color:var(--muted);"> typical range</span>
+      </div>
+    </div>
+    <p style="font-size:0.84em; color:var(--muted); margin:10px 0 0;">Coastal and temperate. Mornings are cool (low 50s), afternoons pleasant (mid to upper 60s). Warmer than Paris but cooler than you might expect for Spain. The Bay of Biscay keeps temperatures moderated. Not beach-swim weather — but beautiful for walking.</p>
+  </div>
+  <div style="flex:1; min-width:260px; background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:18px 22px;">
+    <div style="font-size:0.82em; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:10px;">Precipitation · Late May</div>
+    <div style="display:flex; gap:20px; align-items:baseline;">
+      <div>
+        <span style="font-size:1.5em; font-weight:700; color:var(--navy);">~40–50%</span>
+        <span style="font-size:0.88em; color:var(--muted);"> rain chance daily</span>
+      </div>
+    </div>
+    <p style="font-size:0.84em; color:var(--muted); margin:8px 0 0;">San Sebastián's north coast is one of the rainiest parts of Spain. Expect at least one rainy day in three. Usually intermittent — not all-day washouts. Rain shell stays in the bag at all times. The city is beautiful in the rain.</p>
+  </div>
+</div>
+</section>
+
+<!-- ====================================================== -->
+<!--             DAY 10 — ARRIVAL                           -->
+<!-- ====================================================== -->
+<section>
+<div class="day-header">
+  <div class="day-number">Day 10 · Thursday, May 22</div>
+  <h2>Arrival & La Concha</h2>
+</div>
+<div class="day-body">
+
+<p>Drive from the Pyrenees to the coast. Arrive by early afternoon, check in, and take your first walk along La Concha — one of Europe's most beautiful urban beaches.</p>
+
+<div class="timeline">
+  <div class="time-block" data-title="Drive from Lescun">
+    <span class="time-label">9:00 AM – 12:00 PM</span> <span class="core-tag">core</span>
+    <p>Pack up and depart Lescun. Drive down the Aspe Valley, then west toward Spain. Two route options:</p>
+    <ul>
+      <li><strong>Via Pamplona (~2.5 hrs):</strong> Head to Oloron, then south on the E7/A64, cross into Spain at Irún or the Roncesvalles pass, through Pamplona. Mostly motorway. Reliable, easier driving.</li>
+      <li><strong>Via Col du Somport (~2 hrs):</strong> Mountain pass directly south from the Aspe Valley into Spain. More dramatic driving but narrower roads. Check if the pass is open (usually by mid-May).</li>
+    </ul>
+    <p>Stop for lunch en route — Pamplona's old town is pleasant if you have 30 minutes to spare.</p>
+  </div>
+  <div class="time-block" data-title="Arrive & check in">
+    <span class="time-label">12:30–2:00 PM</span> <span class="core-tag">core</span>
+    <p>Arrive in San Sebastián. Park at the lodging (confirm parking situation when booking — street parking is difficult in the center). Check in. Drop bags. Change out of mountain clothes.</p>
+    <div class="tip">
+      <strong>Parking:</strong> Most central hotels/apartments don't have parking. Look for lodging with garage access, or plan to use public garages (Parking La Concha, Parking Boulevard). ~€20–25/day. You won't need the car much in the city — everything is walkable.
+    </div>
+  </div>
+  <div class="time-block" data-title="La Concha beach walk">
+    <span class="time-label">3:00–4:30 PM</span> <span class="core-tag">core</span>
+    <p><strong>Walk along La Concha.</strong> This is why you came. The sweeping crescent of beach, the Belle Époque railing along the paseo, Monte Urgull on one end and Monte Igueldo on the other. Walk the full promenade (about 25 minutes end to end) or just find a bench and take it in. Lucy will love the water and the seagulls.</p>
+    <p>The beach itself is sandy and gentle — if it's warm enough, let Lucy put her feet in the sand. Not a swimming day, but it's still beautiful.</p>
+  </div>
+  <div class="time-block" data-title="First pintxos">
+    <span class="time-label">7:00–8:30 PM</span> <span class="core-tag">core</span>
+    <p><strong>Pintxos in the Parte Vieja.</strong> Welcome to the best food city on this trip. The Old Town has dozens of pintxos bars packed into a few narrow streets. The ritual: walk in, order a drink (txakoli — the local sparkling wine, or a beer/cider), grab 2–3 pintxos from the bar, eat standing, move to the next place. 3–4 bars = a full dinner.</p>
+    <p>With Lucy, this works better than a sit-down restaurant — you're in and out of each place in 15–20 minutes. She rides in the carrier or stroller through the pedestrian streets. Peak pintxos hour is 8–9 PM, but going at 7 PM means less crowding and more space.</p>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ====================================================== -->
+<!--             DAY 11 — FULL DAY                          -->
+<!-- ====================================================== -->
+<section>
+<div class="day-header">
+  <div class="day-number">Day 11 · Friday, May 23</div>
+  <h2>Monte Urgull & Parte Vieja</h2>
+</div>
+<div class="day-body">
+
+<p>Full day in San Sebastián. The anchor is Monte Urgull — the hill at the east end of La Concha with panoramic views of the city and coast. The rest is food and walking.</p>
+
+<div class="timeline">
+  <div class="time-block" data-title="Morning coffee & market">
+    <span class="time-label">9:00–10:00 AM</span>
+    <p>Coffee in the Parte Vieja. Walk through the Mercado de la Bretxa (the main market) — beautiful produce, cheese, jamón, fish. Good for provisions and photos. The nearby Mercado de San Martín is smaller but has prepared food stalls if you want a sit-down breakfast.</p>
+  </div>
+  <div class="time-block" data-title="Monte Urgull walk">
+    <span class="time-label">10:30 AM – 12:30 PM</span> <span class="core-tag">core</span>
+    <p><strong>Walk up Monte Urgull.</strong> Start from the Parte Vieja — multiple paths lead up from the old town streets and from the Paseo Nuevo (the coastal path on the north side). The hill is ~120m high. The path is paved/stepped in most sections — doable with a carrier. At the top: a fortress (Castillo de la Mota), a giant Cristo statue, and 360° views of La Concha, the old town, and the open Atlantic.</p>
+    <ul>
+      <li>Budget 1–1.5 hours for the walk up, photos, and walk down</li>
+      <li>Carrier is strongly recommended over stroller — some sections have stairs</li>
+      <li>The Paseo Nuevo path around the north side of Monte Urgull is stunning — waves crashing against the rocks, the open coast, La Concha framed behind you</li>
+      <li>Free entry. No tickets needed</li>
+    </ul>
+  </div>
+  <div class="time-block" data-title="Lunch pintxos">
+    <span class="time-label">1:00–2:00 PM</span> <span class="core-tag">core</span>
+    <p>Pintxos round two. Try different bars than last night. Lunchtime pintxos are slightly different from the evening — more hot dishes, fewer crowds. Stand at the bar, point at what looks good, order a drink. This is the easiest and best eating you'll do on the entire trip.</p>
+  </div>
+  <div class="time-block" data-title="Afternoon rest & beach">
+    <span class="time-label">2:30–5:00 PM</span>
+    <p>Back to the lodging for Lucy's nap. Or, if she falls asleep in the carrier, walk along La Concha while she sleeps. If the weather is warm, sit on the beach. Read. Decompress.</p>
+  </div>
+  <div class="time-block optional" data-title="Ondarreta beach or Monte Igueldo">
+    <span class="time-label">5:00–6:30 PM</span> <span class="optional-tag">if energy allows</span>
+    <p>Two options for the late afternoon:</p>
+    <ul>
+      <li><strong>Ondarreta Beach:</strong> Walk to the western end of La Concha. This smaller, quieter beach has a playground area and is more family-oriented. Good for letting Lucy play in the sand.</li>
+      <li><strong>Monte Igueldo (funicular):</strong> Take the funicular (~€4) to the top of Monte Igueldo for the classic postcard view of La Concha. The funicular itself is fun — Lucy will enjoy the ride. At the top there's a small (slightly dated) amusement park — skip the rides, but the viewpoint is worth the trip.</li>
+    </ul>
+  </div>
+  <div class="time-block" data-title="Evening pintxos crawl">
+    <span class="time-label">7:00–8:30 PM</span> <span class="core-tag">core</span>
+    <p>Evening pintxos. Try bars in the Gros neighborhood (east side of the river) for a change from the old town — slightly more local, fewer tourists, equally excellent food. Cross the river on the Puente de la Zurriola.</p>
+  </div>
+</div>
+
+<div class="backup">
+  <strong>Rainy Day Backup:</strong> San Sebastián is great in the rain. The covered market is dry, the pintxos bars are cozy, and the Aquarium (on the port, at the base of Monte Urgull) is a solid rainy-day option with a baby. Walk the Paseo Nuevo in the rain with a jacket — the crashing waves are dramatic.
+</div>
+
+</div>
+</section>
+
+<!-- ====================================================== -->
+<!--              DAY 12 — LAST FULL DAY                    -->
+<!-- ====================================================== -->
+<section>
+<div class="day-header">
+  <div class="day-number">Day 12 · Saturday, May 24</div>
+  <h2>Last Day — Beach, Food & Departure Prep</h2>
+</div>
+<div class="day-body">
+
+<p>Last full day. Tomorrow you drive to Biarritz and take the train back to Paris. Keep today light. One anchor, and prep for the transition.</p>
+
+<div class="timeline">
+  <div class="time-block" data-title="Morning walk">
+    <span class="time-label">9:00–10:30 AM</span>
+    <p>Last morning walk. La Concha one more time, or explore any streets in the Parte Vieja you haven't seen. Saturday mornings in the old town are lively — market, shops open, locals doing their weekend routine.</p>
+  </div>
+  <div class="time-block" data-title="Beach time or Zurriola">
+    <span class="time-label">11:00 AM – 12:30 PM</span> <span class="optional-tag">if energy allows</span>
+    <p><strong>Zurriola Beach.</strong> The surfer beach east of the river. Younger, more energetic vibe than La Concha. Good for watching surfers. The Kursaal conference center (Moneo's glass cubes) is at the east end — striking architecture. Or just return to La Concha — no one's judging.</p>
+  </div>
+  <div class="time-block" data-title="Last lunch">
+    <span class="time-label">1:00–2:30 PM</span> <span class="core-tag">core</span>
+    <p>Final pintxos or a proper sit-down lunch. If you want one nice meal, this is the time. Several restaurants in the Parte Vieja and Gros neighborhoods offer excellent Basque cuisine at reasonable prices (by San Sebastián standards). Reservations helpful for Saturday lunch.</p>
+  </div>
+  <div class="time-block" data-title="Afternoon & packing">
+    <span class="time-label">Afternoon</span>
+    <p>Pack for tomorrow. Gas up the car for the Biarritz drop-off. Buy any last items — txakoli to bring home, Basque cheese, chocolates from the old town shops. Rest.</p>
+  </div>
+  <div class="time-block" data-title="Farewell dinner">
+    <span class="time-label">Evening</span>
+    <p>Last evening in San Sebastián. One more pintxos crawl, or a quiet dinner. Enjoy the sunset over La Concha.</p>
+  </div>
+</div>
+
+<div class="tip">
+  <strong>Tomorrow's Plan:</strong> Drive to Biarritz (~35 min), drop the rental car at Biarritz station, and take the INOUI back to Paris. See the <a href="travel-days.html">Travel Days</a> page for full logistics.
+</div>
+
+</div>
+</section>
+
+<!-- ========== PRACTICAL NOTES ========== -->
+<section>
+<h2>Practical Notes — San Sebastián</h2>
+
+<h3>Pintxos — How It Works</h3>
+<ul>
+  <li><strong>Walk in, look at the bar.</strong> Most pintxos are displayed on the counter. Point at what you want. Some places have a menu for hot pintxos (pintxos calientes) — ask for those separately.</li>
+  <li><strong>Drinks:</strong> Txakoli (cha-KO-lee) — the local slightly sparkling white wine, poured from height into a glass. Excellent. Also: Basque cider (sidra), beer (caña), or wine (vino tinto).</li>
+  <li><strong>2–3 pintxos per bar.</strong> Don't fill up at one place — the whole point is to move. 3–4 bars is a standard pintxos crawl = plenty of food.</li>
+  <li><strong>Pricing:</strong> Most pintxos are €2.50–4 each. A drink is €2–4. Budget ~€15–20 per person for a full crawl (3–4 bars, 2–3 pintxos each).</li>
+  <li><strong>Timing:</strong> Lunch pintxos: 1–2 PM. Evening pintxos: 7:30–9:30 PM. Going slightly early is better with a baby.</li>
+  <li><strong>Keep your toothpick.</strong> Some bars count toothpicks to tally your bill. Others use the honor system — tell them what you had when you pay.</li>
+</ul>
+
+<h3>Top Pintxos Bars (Parte Vieja)</h3>
+<p style="font-size:0.9em; color:var(--muted);">This is not an exhaustive list. Walk the streets and follow the crowds. The concentration of excellent bars in the old town is absurd — you can't really go wrong.</p>
+<ul>
+  <li><strong>Bar Nestor</strong> — Famous for just two things: tortilla española (arrives at 1 PM and 8 PM — first come, first served) and grilled steak. Go early.</li>
+  <li><strong>La Cuchara de San Telmo</strong> — Hot pintxos cooked to order. Foie, veal cheeks, risotto. Slightly more refined. Small, popular — go off-peak.</li>
+  <li><strong>Gandarias</strong> — Larger bar with excellent jamón ibérico and grilled meats. Good for a slightly more relaxed pintxos stop. Has seating.</li>
+  <li><strong>A Fuego Negro</strong> — Modern/creative pintxos. Fun, inventive, not traditional. Good for variety after a few classic bars.</li>
+  <li><strong>Borda Berri</strong> — Small, excellent hot pintxos. Risotto with idiazábal cheese is a standout. Arrive early — very popular.</li>
+</ul>
+
+<h3>Getting Around</h3>
+<p><strong>Everything is walkable.</strong> La Concha, the Parte Vieja, Gros, Monte Urgull — all within a 20-minute walk of each other. You won't need the car in the city. Park it and forget it until departure day.</p>
+<p><strong>Stroller vs. carrier:</strong> The Parte Vieja streets are narrow, pedestrianized, and flat — stroller works fine. Monte Urgull requires the carrier. La Concha promenade is wide and paved — either works.</p>
+
+<h3>What to Bring Home</h3>
+<ul>
+  <li><strong>Txakoli wine</strong> — a bottle or two of the local white. Can't easily find this at home.</li>
+  <li><strong>Idiazábal cheese</strong> — smoked Basque sheep's milk cheese. Vacuum-packed versions travel well.</li>
+  <li><strong>Basque chocolates</strong> — several shops in the Parte Vieja sell excellent artisan chocolate.</li>
+  <li><strong>Espelette pepper (piment d'Espelette)</strong> — technically French Basque but widely available. The dried peppers or powder make a great souvenir.</li>
+</ul>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<div style="text-align:center; padding:40px 0 20px; border-top:1px solid var(--border); margin-top:50px;">
+  <p style="font-size:0.85em; color:var(--muted);">Prepared March 2026. Verify hours, prices, and reservation requirements before travel.<br>
+  ¡Buen provecho! 🇪🇸</p>
+</div>
+
+</div>
+
+<script>
+(function() {
+  var navy = '#4a1a2e';
+  var accent = '#8b6f4e';
+  var tileUrl = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+  var tileAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>';
+
+  function emojiIcon(emoji, isOptional) {
+    var border = isOptional ? '2px dashed ' + accent : '2px solid ' + navy;
+    var bg = isOptional ? 'rgba(255,255,255,0.85)' : 'white';
+    return L.divIcon({
+      className: '',
+      html: '<div style="font-size:18px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:' + bg + ';border-radius:50%;border:' + border + ';box-shadow:0 1px 4px rgba(0,0,0,0.18);">' + emoji + '</div>',
+      iconSize: [32, 32],
+      iconAnchor: [16, 16],
+      popupAnchor: [0, -18]
+    });
+  }
+  function addMarker(map, ll, emoji, label, opt) {
+    return L.marker(ll, {icon: emojiIcon(emoji, opt)}).addTo(map).bindPopup((opt ? '<em style="color:' + accent + '">Optional:</em> ' : '') + '<strong>' + label + '</strong>');
+  }
+
+  // San Sebastián city map
+  var laConcha = [43.3183, -1.9850];
+  var m = L.map('map-area', {scrollWheelZoom: true}).setView([43.3200, -1.9850], 14);
+  L.tileLayer(tileUrl, {attribution: tileAttr, maxZoom: 18}).addTo(m);
+
+  // Beaches
+  addMarker(m, [43.3183, -1.9850], '\uD83C\uDFD6\uFE0F', 'Playa de La Concha', false);
+  addMarker(m, [43.3142, -2.0020], '\uD83C\uDFD6\uFE0F', 'Playa de Ondarreta', true);
+  addMarker(m, [43.3250, -1.9690], '\uD83C\uDFD6\uFE0F', 'Playa de la Zurriola (surfer beach)', true);
+
+  // Viewpoints & landmarks
+  addMarker(m, [43.3260, -1.9830], '\uD83C\uDFD4\uFE0F', 'Monte Urgull + Castillo de la Mota', false);
+  addMarker(m, [43.3110, -2.0080], '\uD83C\uDFD4\uFE0F', 'Monte Igueldo (funicular)', true);
+  addMarker(m, [43.3130, -1.9910], '\uD83C\uDFDB\uFE0F', 'Ayuntamiento (City Hall)', true);
+
+  // Food & neighborhoods
+  addMarker(m, [43.3240, -1.9830], '\uD83C\uDF7D\uFE0F', 'Parte Vieja (pintxos district)', false);
+  addMarker(m, [43.3220, -1.9720], '\uD83C\uDF7D\uFE0F', 'Gros neighborhood (pintxos)', true);
+  addMarker(m, [43.3230, -1.9820], '\uD83D\uDED2', 'Mercado de la Bretxa', false);
+
+  // Port & aquarium
+  addMarker(m, [43.3270, -1.9860], '\uD83D\uDC1F', 'Aquarium (rainy day option)', true);
+
+  // La Concha promenade walk
+  L.polyline([
+    [43.3230, -1.9810], [43.3210, -1.9830], [43.3190, -1.9850], [43.3170, -1.9870],
+    [43.3155, -1.9900], [43.3145, -1.9940], [43.3142, -1.9980], [43.3142, -2.0020]
+  ], {
+    color: navy, weight: 3, opacity: 0.4, dashArray: '8,6', lineCap: 'round'
+  }).addTo(m);
+})();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

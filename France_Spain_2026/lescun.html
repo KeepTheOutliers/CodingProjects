@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lescun — France & Spain 2026</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+
+<!-- ========== HEADER ========== -->
+<div class="hero">
+  <h1>Lescun — Pyrenees</h1>
+  <div class="subtitle">May 19–22, 2026 · 3 Nights · Mountains</div>
+</div>
+
+<!-- ========== QUICK REFERENCE ========== -->
+<section>
+<h2>Quick Reference</h2>
+<dl class="ref-card">
+  <div>
+    <dt>Lodging</dt>
+    <dd><a href="https://www.airbnb.com/rooms/868707663926540204?source_impression_id=p3_1772572887_P396bD8I9g5GLl4k" target="_blank" style="color:var(--accent);">Airbnb — Lescun</a></dd>
+  </div>
+  <div>
+    <dt>Arrival</dt>
+    <dd>Mon May 19 · Drive from Saint-Émilion<br>~3.5 hours via A65 and Aspe Valley</dd>
+  </div>
+  <div>
+    <dt>Departure</dt>
+    <dd>Thu May 22 · Drive to San Sebastián<br>~2.5 hours via Oloron and Pamplona</dd>
+  </div>
+  <div>
+    <dt>Elevation</dt>
+    <dd>~900 m / 2,950 ft — mountain village<br>Cooler temps, especially mornings</dd>
+  </div>
+  <div class="full">
+    <dt>Emergency</dt>
+    <dd>112 (EU general) · 15 (SAMU / medical) · Nearest hospital: Centre Hospitalier d'Oloron (~35 min drive)</dd>
+  </div>
+</dl>
+</section>
+
+<!-- ========== AREA MAP ========== -->
+<section>
+<h2>Area Map</h2>
+<div id="map-area" class="day-map" style="height:450px;"></div>
+<div class="map-legend">
+  <span>🏠 Lodging</span>
+  <span>🏔️ Hikes & Views</span>
+  <span>🏘️ Villages</span>
+</div>
+</section>
+
+<!-- ========== WEATHER ========== -->
+<section>
+<h2>Weather & Light</h2>
+<div style="display:flex; flex-wrap:wrap; gap:16px; margin:0 0 12px 0;">
+  <div style="flex:1; min-width:260px; background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:18px 22px;">
+    <div style="font-size:0.82em; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:10px;">Temperature · Mid-May Pyrenees (900m)</div>
+    <div style="display:flex; gap:20px; align-items:baseline;">
+      <div>
+        <span style="font-size:1.5em; font-weight:700; color:var(--navy);">45–65°F</span>
+        <span style="font-size:0.88em; color:var(--muted);"> typical range</span>
+      </div>
+    </div>
+    <p style="font-size:0.84em; color:var(--muted); margin:10px 0 0;">Significantly cooler than the lowlands. Mornings can be genuinely cold (40s). Afternoons warm into the mid-60s on sunny days but can stay in the 50s under clouds. Mountain weather is variable and can change fast — sun to rain to sun in an hour.</p>
+  </div>
+  <div style="flex:1; min-width:260px; background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:18px 22px;">
+    <div style="font-size:0.82em; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:10px;">Mountain Weather Reality</div>
+    <div style="display:flex; gap:20px; align-items:baseline; flex-wrap: wrap;">
+      <div>
+        <span style="font-size:1.5em; font-weight:700; color:var(--navy);">Variable</span>
+        <span style="font-size:0.88em; color:var(--muted);"> conditions daily</span>
+      </div>
+    </div>
+    <p style="font-size:0.84em; color:var(--muted); margin:8px 0 0;">Rain gear is essential, not optional. Trail conditions may be muddy. Snow is possible above 1,800m in mid-May. Check <a href="https://meteofrance.com" target="_blank" style="color:var(--accent);">Météo France</a> each morning before heading out. If the forecast looks bad, use it as a reading/rest day.</p>
+  </div>
+</div>
+
+<div class="tip">
+  <strong>Layering is everything:</strong> Pack for the full 45–73°F range, but expect to need the warmer end. Mornings start cold, sun warms fast, then clouds can roll in. Base layer + fleece + rain shell is the daily formula.
+</div>
+</section>
+
+<!-- ====================================================== -->
+<!--            DAY 8 — FIRST FULL DAY IN LESCUN            -->
+<!-- ====================================================== -->
+<section>
+<div class="day-header">
+  <div class="day-number">Day 8 · Tuesday, May 20</div>
+  <h2>Cirque de Lescun & Settling In</h2>
+</div>
+<div class="day-body">
+
+<p>First full day in the mountains. The anchor is a walk with views of the Cirque de Lescun — the dramatic limestone amphitheater that makes this village special. One good walk, then rest. Let the mountains do the work.</p>
+
+<div class="timeline">
+  <div class="time-block" data-title="Mountain morning">
+    <span class="time-label">8:00–9:00 AM</span>
+    <p>Wake up to mountain air. Coffee at the Airbnb. Mornings here are quiet and cool — bundle Lucy up. If the Airbnb has a terrace or garden with a view, this is peak quality of life.</p>
+  </div>
+  <div class="time-block" data-title="Morning walk — Cirque de Lescun viewpoint">
+    <span class="time-label">9:30 AM – 12:00 PM</span> <span class="core-tag">core</span>
+    <p><strong>Walk to a Cirque de Lescun viewpoint.</strong> There are several trails from the village that provide stunning views of the cirque — the ring of limestone peaks (Pic d'Anie, Pic Billare, Les Orgues de Camplong) that surround Lescun's valley. Options depend on trail conditions:</p>
+    <ul>
+      <li><strong>Village to Pont de Lamary (~1.5 hrs round trip):</strong> Gentle path along the valley floor. Mostly flat, good for the carrier. Views open up as you walk south from the village.</li>
+      <li><strong>Plateau de Lhers (~2 hrs round trip):</strong> Walk or short drive to the Lhers plateau for wide-open views of the cirque and the Pic d'Anie. Slightly more elevation gain but manageable with a carrier.</li>
+      <li><strong>Village loop:</strong> Simply walk through Lescun village and out along the road toward the cirque. The views start almost immediately — you don't need to go far.</li>
+    </ul>
+    <p>Lucy rides in the carrier. Bring snacks, water, extra layers, and rain gear. Turn back if the weather shifts or Lucy is unhappy — no summit goals here.</p>
+    <div class="tip">
+      <strong>Trail conditions:</strong> Mid-May in the Pyrenees means some trails may still be muddy or have residual snow at higher elevations. Stick to lower trails (below 1,200m) and check conditions at the Lescun mairie (town hall) or ask locals. Trail runners or light hiking boots recommended — not city sneakers.
+    </div>
+  </div>
+  <div class="time-block" data-title="Lunch">
+    <span class="time-label">12:00–1:00 PM</span>
+    <p>Lunch at the Airbnb or at one of Lescun's restaurants (there are 1–2 options in the village). Provisions from Oloron-Sainte-Marie may be needed — Lescun itself has very limited shopping. A small épicerie might be open seasonally.</p>
+  </div>
+  <div class="time-block" data-title="Afternoon rest">
+    <span class="time-label">1:00–4:00 PM</span>
+    <p>Lucy nap. Your nap. Read. Sit on the terrace. Watch the clouds move across the peaks. This is the point of going to a mountain village — the stillness.</p>
+  </div>
+  <div class="time-block" data-title="Late afternoon walk">
+    <span class="time-label">4:30–6:00 PM</span> <span class="optional-tag">if energy allows</span>
+    <p>Short evening stroll through the village or the fields below. Late afternoon light on the cirque is spectacular. Or just sit outside and watch it from the Airbnb.</p>
+  </div>
+  <div class="time-block" data-title="Dinner">
+    <span class="time-label">7:00 PM</span>
+    <p>Dinner at the Airbnb. Cook with whatever you picked up in Oloron. Mountain food: hearty soups, cheese, bread, wine. Simple and warm.</p>
+  </div>
+</div>
+
+<div class="backup">
+  <strong>Bad Weather Day:</strong> Stay at the Airbnb. Read. Play with Lucy. Drive down to Oloron-Sainte-Marie for a café lunch and market shopping. The mountains will be there tomorrow.
+</div>
+
+</div>
+</section>
+
+<!-- ====================================================== -->
+<!--                 DAY 9 — SECOND DAY                     -->
+<!-- ====================================================== -->
+<section>
+<div class="day-header">
+  <div class="day-number">Day 9 · Wednesday, May 21</div>
+  <h2>A Second Walk & Mountain Quiet</h2>
+</div>
+<div class="day-body">
+
+<p>Another day in the mountains. Tomorrow you drive to San Sebastián, so today is the last day of true quiet. One walk, then recovery mode.</p>
+
+<div class="timeline">
+  <div class="time-block" data-title="Morning hike or village walk">
+    <span class="time-label">9:00 AM – 12:00 PM</span> <span class="core-tag">core</span>
+    <p><strong>Morning walk.</strong> Try a different trail than yesterday, or revisit the same one — the light will be different. Options:</p>
+    <ul>
+      <li><strong>Walk toward Le Lac de Lhurs:</strong> A longer option (~3–4 hrs round trip) if conditions are good and you're feeling strong. Beautiful mountain lake. Carrier essential. Only attempt in good weather.</li>
+      <li><strong>Drive to Col de la Pierre Saint-Martin:</strong> ~45 min drive up to a high pass (~1,760m) with panoramic views into Spain. The road is dramatic and the views are enormous. You don't need to hike — the views are from the parking area. Check that the road is open (sometimes closed into mid-May due to snow).</li>
+      <li><strong>Repeat yesterday's route:</strong> No shame in doing the same walk twice. Lucy won't mind, and neither should you.</li>
+    </ul>
+  </div>
+  <div class="time-block" data-title="Lunch & prep">
+    <span class="time-label">12:30 PM</span>
+    <p>Lunch. Start thinking about tomorrow's drive to San Sebastián. Pack partially. Fill the gas tank if you haven't already — there are no gas stations in Lescun.</p>
+  </div>
+  <div class="time-block" data-title="Quiet afternoon">
+    <span class="time-label">Afternoon</span>
+    <p>Rest. Recovery before tomorrow's drive. Read. Play with Lucy in the garden. Enjoy the last mountain evening.</p>
+  </div>
+  <div class="time-block" data-title="Last mountain dinner">
+    <span class="time-label">Evening</span>
+    <p>Dinner at the Airbnb. Open the last bottle of the Saint-Émilion wine you bought. Watch the sun set on the cirque.</p>
+  </div>
+</div>
+
+<div class="tip">
+  <strong>Tomorrow's Drive:</strong> Lescun to San Sebastián is ~2.5 hours (180 km). Route: descend the Aspe Valley → Oloron → head south via the Col du Somport or west to the E80/A64 → cross into Spain near Irún or via Pamplona. The Pamplona route is slightly longer but on better roads. Stop in Pamplona for lunch if you have time.
+</div>
+
+</div>
+</section>
+
+<!-- ========== PRACTICAL NOTES ========== -->
+<section>
+<h2>Practical Notes — Lescun</h2>
+
+<h3>Getting There & Away</h3>
+<p><strong>From Saint-Émilion (~3.5 hrs):</strong> A65 south to Pau, then D-roads into the Aspe Valley. The last 30 minutes are on narrow mountain roads — beautiful but slow. Not stressful, just scenic.</p>
+<p><strong>To San Sebastián (~2.5 hrs):</strong> Descend to Oloron, then either cross via the Col du Somport (mountain pass, beautiful, slower) or take the A64/E80 west and cross at the coast near Irún. Google Maps will route you — download offline maps for the Pyrenees as cell coverage is spotty.</p>
+
+<h3>Supplies & Groceries</h3>
+<ul>
+  <li><strong>Lescun has almost nothing.</strong> There may be a seasonal épicerie, but don't count on it. Stock up before you arrive.</li>
+  <li><strong>Oloron-Sainte-Marie</strong> (35 min drive): This is your supply town. It has a Carrefour, pharmacy, bakery, and a good Saturday market (if you arrive on a Saturday). Stock up on everything here — diapers, wipes, groceries, wine.</li>
+  <li><strong>Water:</strong> Bring bottled water from the lowlands. Mountain tap water is usually excellent but check with the Airbnb host.</li>
+  <li><strong>Gas:</strong> Fill up in Oloron or Bedous (village in the Aspe Valley). There is no gas station in Lescun.</li>
+</ul>
+
+<h3>Hiking with a 9-Month-Old — Mountain Edition</h3>
+<ul>
+  <li><strong>Carrier only.</strong> Stroller is useless on mountain trails. Bring a good hiking carrier with sun/rain cover.</li>
+  <li><strong>Pack for Lucy: </strong>Extra warm layer (fleece + hat), sun protection, snacks, water, dummy/pacifier. Changes happen fast in the mountains.</li>
+  <li><strong>Turn-back time is real.</strong> If weather changes, Lucy fusses, or the trail gets sketchy, turn around. No trail is worth a bad experience at 9 months.</li>
+  <li><strong>Morning hikes are best.</strong> Weather is more predictable, Lucy is happiest, and afternoon thunderstorms are common in the Pyrenees in May.</li>
+  <li><strong>Cell coverage:</strong> Spotty to nonexistent on trails. Download offline maps. Tell someone your route and expected return time.</li>
+  <li><strong>Footwear:</strong> Trail runners or light hiking boots. The trails around Lescun are rocky and potentially muddy in mid-May. City sneakers will leave you slipping.</li>
+</ul>
+
+<h3>What to Eat & Drink</h3>
+<ul>
+  <li><strong>Garbure:</strong> Traditional Pyrenean soup — thick, hearty, made with cabbage, beans, duck confit, and whatever vegetables are seasonal. Perfect after a mountain walk.</li>
+  <li><strong>Ossau-Iraty:</strong> AOC Basque/Béarnais sheep's milk cheese. Buy it from any market or épicerie in the valley. Pair with cherry jam (confiture de cerises noires) — the local tradition.</li>
+  <li><strong>Jurançon wine:</strong> The local white, from vineyards near Pau. Dry (sec) or sweet (moelleux). Try the dry version with cheese — surprisingly excellent.</li>
+  <li><strong>Mountain cooking at the Airbnb:</strong> Keep it simple. The best mountain meals are bread, cheese, soup, wine. You don't need to be elaborate.</li>
+</ul>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<div style="text-align:center; padding:40px 0 20px; border-top:1px solid var(--border); margin-top:50px;">
+  <p style="font-size:0.85em; color:var(--muted);">Prepared March 2026. Verify trail conditions, weather, and road access before heading out.<br>
+  Bonne randonnée. 🏔️</p>
+</div>
+
+</div>
+
+<script>
+(function() {
+  var navy = '#4a1a2e';
+  var accent = '#8b6f4e';
+  var tileUrl = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+  var tileAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>';
+
+  function emojiIcon(emoji, isOptional) {
+    var border = isOptional ? '2px dashed ' + accent : '2px solid ' + navy;
+    var bg = isOptional ? 'rgba(255,255,255,0.85)' : 'white';
+    return L.divIcon({
+      className: '',
+      html: '<div style="font-size:18px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:' + bg + ';border-radius:50%;border:' + border + ';box-shadow:0 1px 4px rgba(0,0,0,0.18);">' + emoji + '</div>',
+      iconSize: [32, 32],
+      iconAnchor: [16, 16],
+      popupAnchor: [0, -18]
+    });
+  }
+  function addMarker(map, ll, emoji, label, opt) {
+    return L.marker(ll, {icon: emojiIcon(emoji, opt)}).addTo(map).bindPopup((opt ? '<em style="color:' + accent + '">Optional:</em> ' : '') + '<strong>' + label + '</strong>');
+  }
+
+  // Lescun area map
+  var lescun = [42.9450, -0.6310];
+  var m = L.map('map-area', {scrollWheelZoom: true}).setView([42.94, -0.60], 12);
+  L.tileLayer(tileUrl, {attribution: tileAttr, maxZoom: 18}).addTo(m);
+
+  addMarker(m, lescun, '\uD83C\uDFE0', 'Lescun Village / Airbnb', false);
+  addMarker(m, [42.9300, -0.6350], '\uD83C\uDFD4\uFE0F', 'Cirque de Lescun views', false);
+  addMarker(m, [42.9600, -0.6100], '\uD83C\uDFD4\uFE0F', 'Plateau de Lhers', true);
+  addMarker(m, [42.9050, -0.6500], '\uD83C\uDFD4\uFE0F', 'Lac de Lhurs (longer hike)', true);
+  addMarker(m, [43.0550, -0.6150], '\uD83C\uDFD8\uFE0F', 'Bedous (valley village)', true);
+  addMarker(m, [43.1900, -0.6050], '\uD83C\uDFD8\uFE0F', 'Oloron-Sainte-Marie (supplies)', false);
+  addMarker(m, [42.9700, -0.3260], '\uD83C\uDFD4\uFE0F', 'Col de la Pierre Saint-Martin', true);
+
+  // Route from Oloron to Lescun
+  L.polyline([
+    [43.1900, -0.6050], [43.1500, -0.6000], [43.1100, -0.6050], [43.0550, -0.6150],
+    [43.0100, -0.6200], [42.9700, -0.6280], [42.9450, -0.6310]
+  ], {
+    color: navy, weight: 3, opacity: 0.4, dashArray: '8,6', lineCap: 'round'
+  }).addTo(m);
+})();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

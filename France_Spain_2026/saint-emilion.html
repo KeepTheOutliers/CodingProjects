@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saint-Émilion — France & Spain 2026</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+
+<!-- ========== HEADER ========== -->
+<div class="hero">
+  <h1>Saint-Émilion</h1>
+  <div class="subtitle">May 16–19, 2026 · 3 Nights · Wine Country</div>
+</div>
+
+<!-- ========== QUICK REFERENCE ========== -->
+<section>
+<h2>Quick Reference</h2>
+<dl class="ref-card">
+  <div>
+    <dt>Lodging</dt>
+    <dd><a href="https://www.airbnb.com/rooms/49530637?source_impression_id=p3_1772572880_P3WSwApAEGxo12LS" target="_blank" style="color:var(--accent);">Airbnb — Saint-Émilion area</a></dd>
+  </div>
+  <div>
+    <dt>Arrival</dt>
+    <dd>Fri May 16 · INOUI to Bordeaux Saint-Jean<br>Pickup rental car → drive ~45 min east</dd>
+  </div>
+  <div>
+    <dt>Departure</dt>
+    <dd>Mon May 19 · Drive to Lescun (~3.5 hrs south)</dd>
+  </div>
+  <div>
+    <dt>Rental Car</dt>
+    <dd>Compact crossover SUV (Renault Symbioz or similar)<br>Pickup at Bordeaux Saint-Jean station</dd>
+  </div>
+  <div class="full">
+    <dt>Emergency</dt>
+    <dd>112 (EU general) · 15 (SAMU / medical) · 17 (Police)</dd>
+  </div>
+</dl>
+</section>
+
+<!-- ========== AREA MAP ========== -->
+<section>
+<h2>Area Map</h2>
+<div id="map-area" class="day-map" style="height:450px;"></div>
+<div class="map-legend">
+  <span>🏠 Lodging</span>
+  <span>🏛️ Village</span>
+  <span>🍷 Wine</span>
+</div>
+</section>
+
+<!-- ========== WEATHER ========== -->
+<section>
+<h2>Weather & Light</h2>
+<div style="display:flex; flex-wrap:wrap; gap:16px; margin:0 0 12px 0;">
+  <div style="flex:1; min-width:260px; background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:18px 22px;">
+    <div style="font-size:0.82em; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:10px;">Temperature · Mid-May Bordeaux Region</div>
+    <div style="display:flex; gap:20px; align-items:baseline;">
+      <div>
+        <span style="font-size:1.5em; font-weight:700; color:var(--navy);">55–72°F</span>
+        <span style="font-size:0.88em; color:var(--muted);"> typical range</span>
+      </div>
+    </div>
+    <p style="font-size:0.84em; color:var(--muted); margin:10px 0 0;">Warmer than Paris. Pleasant mornings in the mid-50s, afternoons often reaching low 70s. Warm enough for shirt sleeves by midday, but bring a layer for evening terrace dining. Possible afternoon showers — quick-passing.</p>
+  </div>
+  <div style="flex:1; min-width:260px; background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:18px 22px;">
+    <div style="font-size:0.82em; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:10px;">Daylight · May 16–19</div>
+    <div style="display:flex; gap:20px; align-items:baseline;">
+      <div>
+        <span style="font-size:1.5em; font-weight:700; color:var(--navy);">~15.5 hrs</span>
+        <span style="font-size:0.88em; color:var(--muted);"> of daylight</span>
+      </div>
+    </div>
+    <p style="font-size:0.84em; color:var(--muted); margin:8px 0 0;">Sunrise ~6:30 AM, sunset ~9:15 PM. Long, warm evenings perfect for outdoor dining. Golden hour light on the vineyards around 8 PM is exceptional.</p>
+  </div>
+</div>
+</section>
+
+<!-- ====================================================== -->
+<!--              DAY 4 — ARRIVAL IN WINE COUNTRY           -->
+<!-- ====================================================== -->
+<section>
+<div class="day-header">
+  <div class="day-number">Day 4 · Friday, May 16</div>
+  <h2>Bordeaux, Car & the Village</h2>
+</div>
+<div class="day-body">
+
+<p>Transit day: train from Paris, pick up the car, and drive east to Saint-Émilion. The main goal is to arrive, get settled, and take an evening walk through the village. Don't try to do too much — you've been traveling since morning.</p>
+
+<div class="timeline">
+  <div class="time-block" data-title="INOUI arrives Bordeaux">
+    <span class="time-label">~12:30 PM</span> <span class="core-tag">core</span>
+    <p>Train arrives at Bordeaux Saint-Jean. The station is modern and well-signed. Follow signs to the car rental area — most agencies are in the parking structure adjacent to the station or a short walk out the north exit.</p>
+  </div>
+  <div class="time-block" data-title="Pick up rental car">
+    <span class="time-label">1:00–1:45 PM</span> <span class="core-tag">core</span>
+    <p>Pick up the rental car. Install the car seat (bring the Doona or your own), load luggage. Budget 30–45 min for the rental process — French agencies can be slow. Make sure the car has a GPS or use Google Maps offline (download the Nouvelle-Aquitaine region before the trip).</p>
+    <div class="tip">
+      <strong>Car Seat:</strong> If using the Doona, it clicks into the car base. If renting a seat from the agency, inspect it carefully — quality varies. Having your own is strongly recommended.
+    </div>
+  </div>
+  <div class="time-block" data-title="Lunch in Bordeaux or on the road">
+    <span class="time-label">1:45–2:30 PM</span> <span class="optional-tag">optional</span>
+    <p>Quick lunch near the station or grab something for the road. The Marché des Capucins is a 10-minute walk south from the station — Bordeaux's covered market with oysters, charcuterie, and wine by the glass. Worth it if Lucy is cooperating and you have time. Otherwise, there are plenty of cafés along Cours de la Marne near the station.</p>
+  </div>
+  <div class="time-block" data-title="Drive to Saint-Émilion">
+    <span class="time-label">2:30–3:15 PM</span> <span class="core-tag">core</span>
+    <p>Drive east to Saint-Émilion. ~45 minutes via the A89 motorway, then D-roads through vineyard country. The landscape shifts quickly — flat urban Bordeaux gives way to rolling vines. Park in the lot below the village (Parking de la Barbanne or similar) — the cobblestone streets inside are steep and narrow.</p>
+  </div>
+  <div class="time-block" data-title="Check in & settle">
+    <span class="time-label">3:30–4:30 PM</span> <span class="core-tag">core</span>
+    <p>Check into the Airbnb. Unpack. Get Lucy settled. Breathe. You've transitioned from metropolis to wine country and the pace should feel completely different.</p>
+  </div>
+  <div class="time-block" data-title="Evening village walk">
+    <span class="time-label">5:30–7:00 PM</span> <span class="optional-tag">if energy allows</span>
+    <p><strong>Walk through Saint-Émilion village.</strong> The medieval center is a UNESCO World Heritage site — steep cobblestone streets, golden limestone buildings, and church spires above the vineyards. Walk to the Place du Marché (the main square), peek at the Monolithic Church entrance, and wander the narrow lanes. The village is small — you can see the highlights in 30–45 minutes. Wear sturdy shoes (cobblestones + stroller = challenging; carrier is better here).</p>
+  </div>
+  <div class="time-block" data-title="Dinner">
+    <span class="time-label">7:30 PM</span>
+    <p>Dinner in the village or at the Airbnb. May consider picking up provisions from a local épicerie if the Airbnb has a kitchen. Saint-Émilion has several restaurants on Place du Marché — outdoor seating with views of the village. Keep it simple tonight.</p>
+  </div>
+</div>
+
+<div class="tip">
+  <strong>Day 4 Priorities:</strong> Get the car. Get to the Airbnb. Take one walk. Eat something. That's it.
+</div>
+
+</div>
+</section>
+
+<!-- ====================================================== -->
+<!--              DAY 5 — WINE COUNTRY                      -->
+<!-- ====================================================== -->
+<section>
+<div class="day-header">
+  <div class="day-number">Day 5 · Saturday, May 17</div>
+  <h2>Vineyards & Village Life</h2>
+</div>
+<div class="day-body">
+
+<p>This is your full day in wine country. The anchor is a vineyard visit — one is plenty. The rest of the day is village wandering, terrace sitting, and reading with a glass of wine while Lucy naps. Don't over-schedule.</p>
+
+<div class="timeline">
+  <div class="time-block" data-title="Morning at the Airbnb">
+    <span class="time-label">8:00–9:30 AM</span>
+    <p>Slow start. Coffee at the Airbnb. If there's a bakery nearby, pick up croissants and bread. Feed Lucy. No rush — this is not a city day.</p>
+  </div>
+  <div class="time-block" data-title="Vineyard visit / wine tasting">
+    <span class="time-label">10:30 AM – 12:00 PM</span> <span class="core-tag">core</span>
+    <p><strong>Visit a vineyard.</strong> Saint-Émilion has hundreds of châteaux, many welcoming visitors. One visit is enough for the day. Look for a smaller, family-run property rather than a big commercial operation — they tend to be more relaxed, more personal, and more accommodating of a baby.</p>
+    <ul>
+      <li>Many châteaux require advance booking — check websites or email a few days ahead</li>
+      <li>Morning visits are best (cooler, Lucy is fresher)</li>
+      <li>Tastings typically last 45–90 minutes including a tour of the caves</li>
+      <li>Bring the carrier — cellars have stairs. Stroller won't work in most</li>
+      <li>One person drives, one person tastes (or spit — they won't judge)</li>
+      <li>You can buy bottles directly from the château — often at better prices than shops</li>
+    </ul>
+    <div class="tip">
+      <strong>Booking tip:</strong> Email the château in advance and mention you're traveling with an infant. Most small producers are very welcoming and will adjust the visit accordingly. Phrase it simply: "Nous voyagerons avec notre bébé de 9 mois — est-ce que cela pose un problème?" (We'll be traveling with our 9-month-old baby — is that a problem?)</p>
+    </div>
+  </div>
+  <div class="time-block" data-title="Lunch in the village">
+    <span class="time-label">12:30–2:00 PM</span> <span class="core-tag">core</span>
+    <p>Lunch in Saint-Émilion village. Head back to Place du Marché or one of the restaurants with terrace seating. Try a local specialty — entrecôte with Bordelaise sauce, or duck confit. Pair with a glass of the local wine (you'll be drinking Saint-Émilion and Pomerol the entire stay). Outdoor seating with vineyard views is the move if available.</p>
+  </div>
+  <div class="time-block" data-title="Nap time & Airbnb">
+    <span class="time-label">2:00–4:30 PM</span>
+    <p>Back to the Airbnb. Lucy's nap. Your nap. Read. Sit outside if the weather is good. This is the pace of wine country — don't fight it.</p>
+  </div>
+  <div class="time-block" data-title="Afternoon walk or second village visit">
+    <span class="time-label">5:00–6:30 PM</span> <span class="optional-tag">if energy allows</span>
+    <p>Late afternoon walk. Options:</p>
+    <ul>
+      <li><strong>Village exploration (continued):</strong> Any streets you missed yesterday. The Cloître des Cordeliers (ruined monastery, lovely courtyard) is worth a look.</li>
+      <li><strong>Drive to a viewpoint:</strong> The roads between vineyards are beautiful in the late afternoon light. Just drive slowly and pull over wherever something catches your eye.</li>
+      <li><strong>Walk through the vines:</strong> If the Airbnb is near vineyards, walk the rows with Lucy in the carrier. The light before sunset is magical on the vines.</li>
+    </ul>
+  </div>
+  <div class="time-block" data-title="Dinner">
+    <span class="time-label">7:00–8:00 PM</span>
+    <p>Dinner. Cook at the Airbnb with market provisions, or head back to the village. The golden hour light on the limestone buildings is beautiful. Early-ish dinner works well with the baby schedule.</p>
+  </div>
+</div>
+
+<div class="backup">
+  <strong>Low-Energy Backup:</strong> Skip the château visit. Buy a bottle from a cave in the village, grab lunch at a terrace, and spend the day at the Airbnb reading in the garden. That's a perfectly valid wine country day.
+</div>
+
+</div>
+</section>
+
+<!-- ====================================================== -->
+<!--             DAY 6 — SECOND DAY / DEPARTURE             -->
+<!-- ====================================================== -->
+<section>
+<div class="day-header">
+  <div class="day-number">Day 6 · Sunday, May 18</div>
+  <h2>A Quiet Day Before the Mountains</h2>
+</div>
+<div class="day-body">
+
+<p>Your last full day in wine country. Tomorrow you drive to the Pyrenees — a 3.5-hour drive. Today should be easy and restorative. Recovery day before a travel day.</p>
+
+<div class="timeline">
+  <div class="time-block" data-title="Lazy morning">
+    <span class="time-label">Morning</span>
+    <p>Slow morning at the Airbnb. Market run if there's a Sunday market nearby (many villages in the region have them). Fresh bread, cheese, fruit. Coffee on the terrace.</p>
+  </div>
+  <div class="time-block" data-title="Village or nearby town">
+    <span class="time-label">10:30 AM – 12:30 PM</span> <span class="optional-tag">if energy allows</span>
+    <p>One morning outing:</p>
+    <ul>
+      <li><strong>Return to Saint-Émilion village</strong> if you want more time there — Sunday morning is often quieter.</li>
+      <li><strong>Drive to a nearby village:</strong> Pomerol, Fronsac, or Castillon-la-Bataille are all within 20 minutes and much less touristed. Just drive, park, walk, eat.</li>
+    </ul>
+  </div>
+  <div class="time-block" data-title="Lunch & provisions">
+    <span class="time-label">12:30 PM</span>
+    <p>Lunch. Pick up any provisions you'll want for the drive tomorrow — snacks, water, baby supplies. Fill up the gas tank today so you're ready to go in the morning.</p>
+  </div>
+  <div class="time-block" data-title="Quiet afternoon">
+    <span class="time-label">Afternoon</span>
+    <p>Afternoon at the Airbnb. Pack partially. Enjoy the last of the wine country pace. Early dinner.</p>
+  </div>
+</div>
+
+<div class="tip">
+  <strong>Tomorrow's Drive:</strong> Saint-Émilion to Lescun is ~3.5 hours (270 km). Route goes south through Langon, then the A65 autoroute toward Pau, then mountain roads into the Aspe Valley. Plan a stop in Pau or Oloron-Sainte-Marie for lunch and a break.
+</div>
+
+</div>
+</section>
+
+<!-- ====================================================== -->
+<!--              DAY 7 — DRIVE TO LESCUN                   -->
+<!-- ====================================================== -->
+<section>
+<div class="day-header">
+  <div class="day-number">Day 7 · Monday, May 19</div>
+  <h2>Departure — Drive to the Pyrenees</h2>
+</div>
+<div class="day-body">
+
+<p>Travel day. ~3.5 hours of driving from wine country to mountain country. Plan one stop midway. Arrive in Lescun by mid-afternoon.</p>
+
+<div class="timeline">
+  <div class="time-block" data-title="Pack up & depart">
+    <span class="time-label">8:30–9:00 AM</span> <span class="core-tag">core</span>
+    <p>Checkout from the Airbnb. Load the car. Last look at the vineyards. Head south.</p>
+  </div>
+  <div class="time-block" data-title="Drive south">
+    <span class="time-label">9:00 AM – 12:30 PM</span> <span class="core-tag">core</span>
+    <p>Drive south toward the Pyrenees. The route takes you through flat agricultural country, then gradually into foothills. Stop midway in <strong>Pau</strong> or <strong>Oloron-Sainte-Marie</strong> — both are pleasant towns for a coffee and leg stretch. Pau has a boulevard with panoramic Pyrenees views on a clear day.</p>
+  </div>
+  <div class="time-block" data-title="Lunch stop">
+    <span class="time-label">12:00–1:00 PM</span>
+    <p>Lunch in Pau, Oloron-Sainte-Marie, or wherever you find yourself. Don't skip this — Lucy needs out of the car, and you need real food before the mountain roads.</p>
+  </div>
+  <div class="time-block" data-title="Final stretch to Lescun">
+    <span class="time-label">1:00–2:30 PM</span> <span class="core-tag">core</span>
+    <p>The last hour is the most dramatic — the road narrows into the Aspe Valley, climbing through forests and past mountain streams. Lescun is at the end of a winding D-road off the valley floor. Drive carefully. Enjoy the scenery change.</p>
+  </div>
+  <div class="time-block" data-title="Arrive in Lescun">
+    <span class="time-label">2:30–3:00 PM</span>
+    <p>Arrive at the <a href="lescun.html">Lescun Airbnb</a>. Settle in. The mountain air hits different.</p>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ========== PRACTICAL NOTES ========== -->
+<section>
+<h2>Practical Notes — Saint-Émilion</h2>
+
+<h3>Getting Around</h3>
+<p><strong>You need the car for everything here.</strong> The village itself is walkable (15 minutes end to end), but the Airbnb, vineyards, and surrounding countryside all require driving. Parking in Saint-Émilion: use the lot below the village (Parking de la Barbanne or Parking de la Porte Bouqueyre). Don't try to drive into the old town — the streets are medieval-width.</p>
+
+<h3>Wine Tasting with a Baby</h3>
+<ul>
+  <li><strong>It works better than you'd think.</strong> Small producers are usually families themselves. They're not running Napa-style tasting rooms — they're inviting you into their home. Mention Lucy when you book.</li>
+  <li><strong>One person drives.</strong> This is non-negotiable. Spit or limit yourself if you're behind the wheel. The roads between vineyards are narrow.</li>
+  <li><strong>Morning visits are best.</strong> Lucy is happiest in the morning, and the cellars are cooler before midday.</li>
+</ul>
+
+<h3>Groceries</h3>
+<ul>
+  <li><strong>Saint-Émilion village</strong> has a few small shops and an épicerie, but selection is limited and prices are tourist-adjusted.</li>
+  <li><strong>Libourne</strong> (15 min northwest) has a Carrefour, Leclerc, and pharmacies. Stock up here for Airbnb cooking — diapers, wipes, formula, wine, groceries. Do this on arrival day or the next morning.</li>
+</ul>
+
+<h3>What to Eat & Drink</h3>
+<ul>
+  <li><strong>Local wines:</strong> Saint-Émilion Grand Cru, Pomerol, Côtes de Bordeaux. Red, always. Merlot-dominant. Rich, velvety, age-worthy. Drink what the locals pour.</li>
+  <li><strong>Local food:</strong> Entrecôte à la Bordelaise (rib steak with red wine/shallot sauce), duck confit, foie gras, canelés (caramelized pastry, Bordeaux specialty). Cheese: Ossau-Iraty (Basque sheep's milk) if you see it — foreshadowing for the Pyrenees leg.</li>
+  <li><strong>Canelés:</strong> The Bordeaux pastry. Small, caramelized, custardy. Buy them from a bakery — they should be slightly crispy outside, soft inside. Lucy will try to eat yours.</li>
+</ul>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<div style="text-align:center; padding:40px 0 20px; border-top:1px solid var(--border); margin-top:50px;">
+  <p style="font-size:0.85em; color:var(--muted);">Prepared March 2026. Verify hours, prices, and reservation requirements before travel.<br>
+  Santé. 🍷</p>
+</div>
+
+</div>
+
+<script>
+(function() {
+  var navy = '#4a1a2e';
+  var accent = '#8b6f4e';
+  var tileUrl = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+  var tileAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>';
+
+  function emojiIcon(emoji, isOptional) {
+    var border = isOptional ? '2px dashed ' + accent : '2px solid ' + navy;
+    var bg = isOptional ? 'rgba(255,255,255,0.85)' : 'white';
+    return L.divIcon({
+      className: '',
+      html: '<div style="font-size:18px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:' + bg + ';border-radius:50%;border:' + border + ';box-shadow:0 1px 4px rgba(0,0,0,0.18);">' + emoji + '</div>',
+      iconSize: [32, 32],
+      iconAnchor: [16, 16],
+      popupAnchor: [0, -18]
+    });
+  }
+  function addMarker(map, ll, emoji, label, opt) {
+    return L.marker(ll, {icon: emojiIcon(emoji, opt)}).addTo(map).bindPopup((opt ? '<em style="color:' + accent + '">Optional:</em> ' : '') + '<strong>' + label + '</strong>');
+  }
+
+  // Saint-Émilion area map
+  var village = [44.8954, -0.1545];
+  var m = L.map('map-area', {scrollWheelZoom: true}).setView([44.88, -0.20], 12);
+  L.tileLayer(tileUrl, {attribution: tileAttr, maxZoom: 18}).addTo(m);
+
+  addMarker(m, village, '\uD83C\uDFDB\uFE0F', 'Saint-\u00c9milion Village', false);
+  addMarker(m, [44.9200, -0.2600], '\uD83D\uDE82', 'Bordeaux Saint-Jean (pickup)', false);
+  addMarker(m, [44.9290, -0.2050], '\uD83D\uDED2', 'Libourne (groceries)', true);
+  addMarker(m, [44.8400, -0.1500], '\uD83C\uDF77', 'Vineyard Country (south)', true);
+
+  // Driving route: Bordeaux → Saint-Émilion (approximate)
+  L.polyline([
+    [44.9200, -0.2600], [44.9180, -0.2400], [44.9160, -0.2200], [44.9200, -0.2050],
+    [44.9180, -0.1900], [44.9130, -0.1750], [44.9080, -0.1650], [44.9020, -0.1580],
+    [44.8954, -0.1545]
+  ], {
+    color: navy, weight: 3, opacity: 0.4, dashArray: '8,6', lineCap: 'round'
+  }).addTo(m);
+})();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
