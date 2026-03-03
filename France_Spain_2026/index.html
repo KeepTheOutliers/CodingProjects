@@ -48,7 +48,7 @@
 <div id="map-trip" class="day-map" style="height:520px;"></div>
 <div class="map-legend">
   <span style="display:inline-flex;align-items:center;gap:5px;"><span style="display:inline-block;width:24px;height:3px;background:#4a1a2e;"></span> INOUI outbound</span>
-  <span style="display:inline-flex;align-items:center;gap:5px;"><span style="display:inline-block;width:24px;height:0;border-top:2.5px dashed #4a6e8b;"></span> INOUI return</span>
+  <span style="display:inline-flex;align-items:center;gap:5px;"><span style="display:inline-block;width:24px;height:3px;background:#4a6e8b;"></span> INOUI return</span>
   <span style="display:inline-flex;align-items:center;gap:5px;"><span style="display:inline-block;width:24px;height:3px;background:#8b6f4e;border-top:2px dashed #8b6f4e;height:0;"></span> Rental car</span>
   <span style="display:inline-flex;align-items:center;gap:5px;"><span style="display:inline-block;width:24px;height:3px;background:#999;border-top:1px dotted #999;height:0;"></span> Flight</span>
 </div>
@@ -314,7 +314,7 @@
     [45.52, -0.12], [46.32, 0.28], [47.02, 0.78],
     [47.82, 1.38], [48.48, 1.96], montpar
   ], {
-    color: returnBlue, weight: 3.5, opacity: 0.7, dashArray: '12,6', lineCap: 'round'
+    color: returnBlue, weight: 3.5, opacity: 0.7, lineCap: 'round'
   }).addTo(m).bindPopup('<strong>INOUI Return</strong><br>Biarritz \u2192 Paris<br>~4.5 hrs');
 
   // Label for INOUI
@@ -327,36 +327,65 @@
   L.marker([46.30, 0.10], {icon: inouiLabel1, interactive: false}).addTo(m);
 
   // --- Rental car legs (dashed, warm brown) ---
-  // Bordeaux → Saint-Émilion
+  // Bordeaux → Saint-Émilion (D936 via Libourne)
   L.polyline([
-    bordx, [44.84, -0.50], [44.85, -0.40], [44.86, -0.30],
-    [44.87, -0.25], [44.88, -0.20], stemil
+    bordx, [44.84, -0.49], [44.86, -0.41], [44.88, -0.33],
+    [44.91, -0.24], [44.90, -0.20], stemil
   ], {
     color: carColor, weight: 3, opacity: 0.65, dashArray: '8,6', lineCap: 'round'
   }).addTo(m).bindPopup('<strong>Rental Car</strong><br>Bordeaux \u2192 Saint-\u00c9milion<br>~45 min');
 
-  // Saint-Émilion → Lescun
+  // Saint-Émilion → Lescun (A62/A65 south, D936 via Oloron-Sainte-Marie)
+  var oloron = [43.194, -0.616];
   L.polyline([
-    stemil, [44.70, -0.20], [44.40, -0.30], [44.00, -0.40],
-    [43.60, -0.50], [43.30, -0.55], [43.10, -0.60], lescun
+    stemil, [44.82, -0.20], [44.70, -0.28],
+    [44.55, -0.25],   // Langon (A62)
+    [44.30, -0.28],   // Captieux (A65)
+    [44.03, -0.32],   // Roquefort
+    [43.70, -0.26],   // Aire-sur-l’Adour
+    [43.45, -0.35],   // near Pau
+    [43.30, -0.37],   // Pau junction
+    oloron,           // Oloron-Sainte-Marie
+    [43.07, -0.63],   // Bedous valley
+    lescun
   ], {
     color: carColor, weight: 3, opacity: 0.65, dashArray: '8,6', lineCap: 'round'
-  }).addTo(m).bindPopup('<strong>Rental Car</strong><br>Saint-\u00c9milion \u2192 Lescun<br>~3.5 hrs');
+  }).addTo(m).bindPopup('<strong>Rental Car</strong><br>Saint-\u00c9milion \u2192 Lescun<br>via Oloron-Sainte-Marie<br>~3.5 hrs');
 
-  // Lescun → San Sebastián
+  // Lescun → San Sebastián (via Canfranc Estación, Jaca, Pamplona)
+  var canfranc = [42.752, -0.517];
+  var jaca     = [42.570, -0.549];
+  var pamplona = [42.812, -1.645];
   L.polyline([
-    lescun, [42.98, -0.80], [43.05, -1.10], [43.10, -1.30],
-    [43.15, -1.50], [43.20, -1.70], sanSeb
+    lescun, [42.88, -0.62],
+    [42.82, -0.57],   // Urdos / Somport road
+    canfranc,         // Canfranc Estación
+    jaca,             // Jaca
+    [42.62, -0.80],   // Puente la Reina de Jaca
+    [42.62, -0.95],   // Berdún
+    [42.63, -1.12],   // Yesa
+    [42.65, -1.30],   // Lumbier
+    [42.72, -1.50],   // Monreal
+    pamplona,         // Pamplona
+    [42.92, -1.83],   // Irurtzun / AP-15
+    [43.07, -2.02],   // Tolosa area
+    [43.13, -2.08],   // Tolosa
+    sanSeb
   ], {
     color: carColor, weight: 3, opacity: 0.65, dashArray: '8,6', lineCap: 'round'
-  }).addTo(m).bindPopup('<strong>Rental Car</strong><br>Lescun \u2192 San Sebasti\u00e1n<br>~2.5 hrs');
+  }).addTo(m).bindPopup('<strong>Rental Car</strong><br>Lescun \u2192 San Sebasti\u00e1n<br>via Canfranc, Pamplona<br>~4 hrs');
 
-  // San Sebastián → Biarritz
+  // San Sebastián → Biarritz (A-8 coastal via Irun, St-Jean-de-Luz)
   L.polyline([
-    sanSeb, [43.35, -1.85], [43.40, -1.75], [43.45, -1.65], biarr
+    sanSeb, [43.34, -1.79],          // Irun / border
+    [43.36, -1.77],                   // Hendaye
+    [43.39, -1.66],                   // St-Jean-de-Luz
+    [43.42, -1.63],                   // Guéthary
+    [43.45, -1.60],                   // Bidart
+    biarr
   ], {
     color: carColor, weight: 3, opacity: 0.65, dashArray: '8,6', lineCap: 'round'
-  }).addTo(m).bindPopup('<strong>Rental Car</strong><br>San Sebasti\u00e1n \u2192 Biarritz<br>~35 min · Car drop-off');
+  }).addTo(m).bindPopup('<strong>Rental Car</strong><br>San Sebasti\u00e1n \u2192 Biarritz<br>~35 min \u00b7 Car drop-off');
 
   // Label for rental car
   var carLabel = L.divIcon({
@@ -365,11 +394,11 @@
     iconSize: [70, 20],
     iconAnchor: [35, 10]
   });
-  L.marker([43.60, -0.50], {icon: carLabel, interactive: false}).addTo(m);
+  L.marker([43.45, -0.35], {icon: carLabel, interactive: false}).addTo(m);
 
   // Fit bounds to show everything
   m.fitBounds([
-    [42.50, -2.50],
+    [42.30, -2.60],
     [49.30, 3.00]
   ], {padding: [30, 30]});
 })();
