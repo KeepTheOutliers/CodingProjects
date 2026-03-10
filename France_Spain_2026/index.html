@@ -48,7 +48,7 @@ details.leg-card .leg-body dt {
 
 
 /* Destination thumbnail in summary */
-.dest-thumb{width:108px;height:108px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:inline-block;margin-right:12px}
+.dest-thumb{width:162px;height:162px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:inline-block;margin-right:16px}
 
 /* Lightbox for clickable thumbnails */
 .dest-thumb{cursor:pointer}
@@ -69,7 +69,25 @@ details.leg-card .leg-body dt {
 @media(max-width:720px){
   #trip-calendar{grid-template-columns:repeat(7,1fr);gap:6px}
   .cal-day{min-height:68px;padding:6px}
+  .dest-thumb{width:96px;height:96px}
 }
+
+/* Make long lists (e.g., Anchors) render as two columns inside expanded details */
+details.leg-card .leg-body .full dd{
+  column-count:2;
+  column-gap:18px;
+  hyphens:auto;
+}
+
+/* Tighter calendar: smaller cells, subtler pills */
+#trip-calendar-wrap{max-width:640px}
+#trip-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:10px}
+.cal-day{background:linear-gradient(180deg, #fff 0%, #fbfbfb 100%);border:1px solid rgba(0,0,0,0.04);border-radius:6px;padding:6px;min-height:48px;position:relative}
+.cal-day .day-num{position:absolute;top:6px;right:8px;font-size:0.78em;color:var(--muted)}
+.event-pill{display:block;padding:4px 6px;border-radius:6px;color:white;font-weight:700;font-size:0.78em;margin-top:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.day-header{font-weight:700;text-align:center;color:var(--muted);font-size:0.78em}
+#calendar-legend .legend-item{display:inline-flex;align-items:center;gap:6px;padding:6px;border-radius:6px;border:1px solid rgba(0,0,0,0.04);background:#fff;font-size:0.88em}
+.legend-swatch{width:12px;height:12px;border-radius:3px;display:inline-block}
 
 </style>
 </head>
