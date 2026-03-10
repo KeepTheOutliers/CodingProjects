@@ -304,6 +304,14 @@
     var map = {};
     var pi = 0;
 
+    // assign fixed colors for known stays so they look consistent
+    map['Paris'] = palette[0];
+    map['Saint-\u00c9milion'] = palette[1];
+    map['Saint-Emilion'] = palette[1];
+    map['Lescun'] = palette[2];
+    map['San Sebastian'] = palette[3];
+    map['San Sebasti\u00e1n'] = palette[3];
+
     // assign colors (special-case Return -> flightColor)
     events.forEach(function(ev){
       var key = ev.title;
