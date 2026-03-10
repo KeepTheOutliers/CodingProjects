@@ -294,14 +294,16 @@
     if (!events.length) return;
 
     // color palette and mapping
-    var palette = ['#4a1a2e','#4a6e8b','#8b6f4e','#e07a5f','#2a9d8f','#f4a261','#6a6f8c'];
+    // softer / paler color palette for calendar days
+    var palette = ['#e8cfd2','#cfe8eb','#efe8cf','#f6dccb','#cfeee0','#efe9ff','#ecebf4'];
     var map = {};
     var pi = 0;
 
     // assign colors (special-case Return -> flightColor)
     events.forEach(function(ev){
       var key = ev.title;
-      if (/Return|Return to|Departure|flight|Flight|Return/i.test(key)) { map[key] = '#999'; return; }
+      // make flight/return days a light gray
+      if (/Return|Return to|Departure|flight|Flight|Return/i.test(key)) { map[key] = '#cfcfcf'; return; }
       if (!map[key]) { map[key] = palette[pi++ % palette.length]; }
     });
 
@@ -360,20 +362,7 @@
       container.appendChild(cell);
     }
 
-    // legend
-    var legend = document.getElementById('calendar-legend');
-    if (legend){
-      legend.innerHTML = '';
-      Object.keys(map).forEach(function(k){
-        var item = document.createElement('div'); item.className='legend-item';
-        var sw = document.createElement('span'); sw.className='legend-swatch'; sw.style.background = map[k];
-        var lbl = document.createElement('span'); lbl.textContent = k;
-        item.appendChild(sw); item.appendChild(lbl);
-        legend.appendChild(item);
-      });
-      // small note about colors
-      var note = document.createElement('div'); note.style.marginLeft='8px'; note.style.color='var(--muted)'; note.style.fontSize='0.9em'; note.textContent='(colors: stays and travel)'; legend.appendChild(note);
-    }
+    // legend intentionally removed per user preference
   })();
 
   // --- Lightbox behavior for destination thumbnails ---
