@@ -722,7 +722,6 @@ li { margin-bottom: 4px; }
   pointer-events: none;
   object-fit: contain;
   /* if the source has a white background, multiply lets it blend into the page color */
-  mix-blend-mode: multiply;
 }
 .rt-name {
   position: absolute;
