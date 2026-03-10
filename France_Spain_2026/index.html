@@ -27,6 +27,19 @@ details.leg-card summary{cursor:pointer;display:flex;align-items:center;gap:10px
 details.leg-card summary strong{font-size:1.02em}
 details.leg-card .leg-body{padding:8px 0 0;color:var(--muted);font-size:0.95em}
 details.leg-card[open]{box-shadow:0 4px 12px rgba(0,0,0,0.04)}
+
+/* Emphasize field labels (e.g., Dates, Lodging, Arrival) */
+.ref-card dt,
+dl.leg-card dt {
+  font-weight:700;
+  color: #222;
+  font-size:1.03em;
+  letter-spacing:0.2px;
+}
+
+/* Slight spacing for definition terms */
+.ref-card dt { margin-right:8px; }
+
 </style>
 </head>
 <body>
