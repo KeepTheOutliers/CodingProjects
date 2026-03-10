@@ -290,6 +290,11 @@
     events.push({ title: 'Return to Paris', start: makeDate(2026,4,25), end: makeDate(2026,4,25) });
     // May 26 CDG-DEN Flight
     events.push({ title: 'CDG-DEN Flight', start: makeDate(2026,4,26), end: makeDate(2026,4,26) });
+    // Explicit stay ranges (override parsed values to ensure accuracy)
+    events.push({ title: 'Paris', start: makeDate(2026,4,13), end: makeDate(2026,4,15) });
+    events.push({ title: 'Saint-Émilion', start: makeDate(2026,4,16), end: makeDate(2026,4,18) });
+    events.push({ title: 'Lescun', start: makeDate(2026,4,19), end: makeDate(2026,4,21) });
+    events.push({ title: 'San Sebastian', start: makeDate(2026,4,22), end: makeDate(2026,4,24) });
 
     if (!events.length) return;
 
