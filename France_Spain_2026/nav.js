@@ -195,6 +195,7 @@
 
       var summaryParts = [];
       if (titleEl) summaryParts.push(titleEl.textContent.trim());
+      if (dateText) summaryParts.push(dateText);
       var lodgingSummary = '';
       if (lodgingName) {
         lodgingSummary = (lodgingType ? (lodgingType + ': ') : '') + lodgingName;

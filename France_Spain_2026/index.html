@@ -28,21 +28,28 @@ details.leg-card summary strong{font-size:1em}
 details.leg-card .leg-body{padding:8px 0 0;color:var(--muted);font-size:0.95em}
 details.leg-card[open]{box-shadow:0 4px 12px rgba(0,0,0,0.04)}
 
-/* Field labels (e.g., Dates, Lodging, Arrival) — subtle emphasis */
-.ref-card dt,
-details.leg-card .leg-body dt {
+/* Field labels for reference cards (keep existing styling) */
+.ref-card dt {
   font-weight:600;
   color:#2f2f2f;
   font-size:0.98em;
   letter-spacing:0.04px;
+  margin-right:4px;
 }
 
-/* Slight spacing for definition terms */
-.ref-card dt { margin-right:4px; }
+/* Field labels inside collapsed leg-card bodies: subtle, lowercase, dark grey */
+details.leg-card .leg-body dt {
+  font-weight:600;
+  color:#4a4a4a;
+  font-size:0.98em;
+  letter-spacing:0.04px;
+  text-transform:lowercase;
+  margin-right:4px;
+}
 
 
 /* Destination thumbnail in summary */
-.dest-thumb{width:48px;height:48px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:inline-block;margin-right:8px}
+.dest-thumb{width:72px;height:72px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:inline-block;margin-right:8px}
 
 /* Lightbox for clickable thumbnails */
 .dest-thumb{cursor:pointer}
@@ -148,7 +155,7 @@ details.leg-card .leg-body dt {
   </div>
   <div>
     <dt>Lodging</dt>
-    <dd>Hôtel Le Cinq Codet · Spa Suite<br>5 Rue Louis Codet, 75007</dd>
+    <dd><a href="https://2lcollection.com/en/cinq-codet.html?utm_source=google&utm_medium=performance_max&utm_campaign=pmax_meta_io&gad_source=1&gad_campaignid=23594792772&gbraid=0AAAAA-RV0hx1NMrc89rNOGt_bLStwegxd&gclid=Cj0KCQjwgr_NBhDFARIsAHiUWr784NmEJux1RLLdEJEQknwmftVxYiQOeCORzOwuMe1Gaf1Jjqu2FdQaAs78EALw_wcB" target="_blank" style="color:var(--accent);"><strong>Hôtel Le Cinq Codet</strong></a><br>Spa Suite<br>5 Rue Louis Codet, 75007</dd>
   </div>
   <div>
     <dt>Arrival</dt>
@@ -178,7 +185,7 @@ details.leg-card .leg-body dt {
   </div>
   <div>
     <dt>Lodging</dt>
-    <dd><a href="https://www.airbnb.com/rooms/49530637" target="_blank" style="color:var(--accent);">Logis de Colette</a> · 7 Mazerat<br>Hosted by Xavier · Couvent des Jacobins</dd>
+    <dd><a href="https://www.airbnb.com/rooms/49530637" target="_blank" style="color:var(--accent);"><strong>Logis de Colette</strong></a><br>7 Mazerat<br>Hosted by Xavier · Couvent des Jacobins</dd>
   </div>
   <div>
     <dt>Arrival</dt>
@@ -208,7 +215,7 @@ details.leg-card .leg-body dt {
   </div>
   <div>
     <dt>Lodging</dt>
-    <dd><a href="https://www.airbnb.com/rooms/868707663926540204" target="_blank" style="color:var(--accent);">La Bourdette</a> · 1745 D340<br>Renovated sheepfold · Hosted by Thierry</dd>
+    <dd><a href="https://www.airbnb.com/rooms/868707663926540204" target="_blank" style="color:var(--accent);"><strong>La Bourdette</strong></a><br>1745 D340<br>Renovated sheepfold · Hosted by Thierry</dd>
   </div>
   <div>
     <dt>Arrival</dt>
