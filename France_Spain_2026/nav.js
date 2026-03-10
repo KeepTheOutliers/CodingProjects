@@ -239,6 +239,115 @@
     }
   });
 
+  // --- Build a simple month calendar showing trip dates ---
+  (function(){
+    // helper: parse date range like "May 13–16 · 3 nights"
+    function parseDateRange(txt){
+      if (!txt) return null;
+      var part = txt.split('\u00b7')[0].trim(); // before middot
+      // try pattern: Month D–D or Month D–Month D
+      var m = part.match(/([A-Za-z]+)\s*(\d{1,2})\s*[–-]\s*([A-Za-z]*\s*\d{1,2})/);
+      if (!m) {
+        // maybe single day: "May 25–26" fallback
+        var single = part.match(/([A-Za-z]+)\s*(\d{1,2})/);
+        if (!single) return null;
+        var mon = single[1], day = parseInt(single[2],10);
+        var d = new Date(2026, new Date(Date.parse(mon + ' 1, 2026')).getMonth(), day);
+        return [d,d];
+      }
+      var startMon = m[1].trim();
+      var startDay = parseInt(m[2],10);
+      var endRaw = m[3].trim();
+      var endMon = startMon;
+      var endDay = null;
+      var em = endRaw.match(/([A-Za-z]+)\s*(\d{1,2})/);
+      if (em) { endMon = em[1].trim(); endDay = parseInt(em[2],10); }
+      else { endDay = parseInt(endRaw,10); }
+      var s = new Date(2026, new Date(Date.parse(startMon + ' 1, 2026')).getMonth(), startDay);
+      var e = new Date(2026, new Date(Date.parse(endMon + ' 1, 2026')).getMonth(), endDay);
+      return [s,e];
+    }
+
+    // collect events from the rendered leg-cards
+    var events = [];
+    document.querySelectorAll('details.leg-card').forEach(function(det){
+      try {
+        var title = det.querySelector('summary strong') ? det.querySelector('summary strong').textContent.trim() : (det.querySelector('summary') && det.querySelector('summary').textContent.trim());
+        var dateDt = Array.from(det.querySelectorAll('.leg-body dt')).find(function(d){ return /date/i.test(d.textContent); });
+        var dateTxt = dateDt ? (dateDt.nextElementSibling && dateDt.nextElementSibling.textContent.trim()) : null;
+        var range = parseDateRange(dateTxt);
+        if (range) events.push({ title: title || 'Trip', start: range[0], end: range[1] });
+      } catch(e){ /* ignore */ }
+    });
+
+    if (!events.length) return;
+
+    // color palette and mapping
+    var palette = ['#4a1a2e','#4a6e8b','#8b6f4e','#e07a5f','#2a9d8f','#f4a261','#6a6f8c'];
+    var map = {};
+    var pi = 0;
+
+    // assign colors (special-case Return -> flightColor)
+    events.forEach(function(ev){
+      var key = ev.title;
+      if (/Return|Return to|Departure|flight|Flight|Return/i.test(key)) { map[key] = '#999'; return; }
+      if (!map[key]) { map[key] = palette[pi++ % palette.length]; }
+    });
+
+    // render calendar for May 2026
+    var year = 2026, month = 4; // May (0-based)
+    var first = new Date(year, month, 1);
+    var last = new Date(year, month+1, 0);
+    var container = document.getElementById('trip-calendar');
+    if (!container) return;
+    container.innerHTML = '';
+
+    // day-of-week headers (Sun..Sat)
+    var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    days.forEach(function(d){ var h = document.createElement('div'); h.className='day-header'; h.textContent = d; container.appendChild(h); });
+
+    // determine leading blanks
+    var lead = first.getDay();
+    for (var i=0;i<lead;i++){ var blank = document.createElement('div'); blank.className='cal-day'; blank.innerHTML=''; container.appendChild(blank); }
+
+    for (var d=1; d<=last.getDate(); d++){
+      var cell = document.createElement('div'); cell.className='cal-day';
+      cell.dataset.day = d;
+      var dn = document.createElement('div'); dn.className='day-num'; dn.textContent = d; cell.appendChild(dn);
+
+      // for each event, if day in range, add pill
+      events.forEach(function(ev){
+        var sd = new Date(ev.start.getFullYear(), ev.start.getMonth(), ev.start.getDate());
+        var ed = new Date(ev.end.getFullYear(), ev.end.getMonth(), ev.end.getDate());
+        var cur = new Date(year, month, d);
+        if (cur >= sd && cur <= ed) {
+          var pill = document.createElement('span');
+          pill.className = 'event-pill';
+          pill.textContent = ev.title;
+          pill.style.background = map[ev.title] || '#888';
+          cell.appendChild(pill);
+        }
+      });
+
+      container.appendChild(cell);
+    }
+
+    // legend
+    var legend = document.getElementById('calendar-legend');
+    if (legend){
+      legend.innerHTML = '';
+      Object.keys(map).forEach(function(k){
+        var item = document.createElement('div'); item.className='legend-item';
+        var sw = document.createElement('span'); sw.className='legend-swatch'; sw.style.background = map[k];
+        var lbl = document.createElement('span'); lbl.textContent = k;
+        item.appendChild(sw); item.appendChild(lbl);
+        legend.appendChild(item);
+      });
+      // small note about colors
+      var note = document.createElement('div'); note.style.marginLeft='8px'; note.style.color='var(--muted)'; note.style.fontSize='0.9em'; note.textContent='(colors: stays and travel)'; legend.appendChild(note);
+    }
+  })();
+
   // --- Lightbox behavior for destination thumbnails ---
   // Create a single reusable lightbox element and attach click handlers
   (function(){
