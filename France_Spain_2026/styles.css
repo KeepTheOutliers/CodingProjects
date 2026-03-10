@@ -674,7 +674,7 @@ li { margin-bottom: 4px; }
   align-items: center;
   justify-content: center;
   margin: 20px 0 52px;
-  padding: 56px 12px 120px;
+  padding: 56px 12px 86px;
   overflow-x: auto;
   /* allow tall destination icons to extend vertically without being clipped */
   overflow-y: visible;
@@ -702,13 +702,13 @@ li { margin-bottom: 4px; }
 }
 .rt-dest-icon {
   position: absolute;
-  bottom: 36px; left: 50%;
+  bottom: 26px; left: 50%;
   transform: translateX(-50%);
   z-index: 2200;
   line-height: 0;
   opacity: 0.95;
-  width: 120px;
-  height: 120px;
+  width: 30px; /* 25% of previous 120px */
+  height: 30px;
 }
 
 /* Prevent internal elements from clipping absolutely-positioned icons */
