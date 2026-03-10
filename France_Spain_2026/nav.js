@@ -315,19 +315,36 @@
       cell.dataset.day = d;
       var dn = document.createElement('div'); dn.className='day-num'; dn.textContent = d; cell.appendChild(dn);
 
-      // for each event, if day in range, add pill
-      events.forEach(function(ev){
+      // choose a single event to represent the day (first matching event)
+      var cur = new Date(year, month, d);
+      var matched = null;
+      for (var ei=0; ei<events.length; ei++){
+        var ev = events[ei];
         var sd = new Date(ev.start.getFullYear(), ev.start.getMonth(), ev.start.getDate());
         var ed = new Date(ev.end.getFullYear(), ev.end.getMonth(), ev.end.getDate());
-        var cur = new Date(year, month, d);
-        if (cur >= sd && cur <= ed) {
-          var pill = document.createElement('span');
-          pill.className = 'event-pill';
-          pill.textContent = ev.title;
-          pill.style.background = map[ev.title] || '#888';
-          cell.appendChild(pill);
-        }
-      });
+        if (cur >= sd && cur <= ed) { matched = ev; break; }
+      }
+      if (matched) {
+        var color = map[matched.title] || '#888';
+        // color entire day square
+        cell.style.background = color;
+        cell.style.color = '#fff';
+        cell.style.borderColor = "rgba(0,0,0,0.06)";
+        var label = document.createElement('div');
+        label.className = 'event-label';
+        label.style.color = '#fff';
+        label.style.fontWeight = '700';
+        label.style.marginTop = '18px';
+        label.style.fontSize = '0.82em';
+        label.style.overflow = 'hidden';
+        label.style.textOverflow = 'ellipsis';
+        label.style.whiteSpace = 'nowrap';
+        // shorten title if necessary
+        var t = matched.title || '';
+        if (t.length > 18) t = t.substring(0,15) + '\u2026';
+        label.textContent = t;
+        cell.appendChild(label);
+      }
 
       container.appendChild(cell);
     }

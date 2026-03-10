@@ -80,11 +80,14 @@ details.leg-card .leg-body .full dd{
 }
 
 /* Tighter calendar: smaller cells, subtler pills */
-#trip-calendar-wrap{max-width:640px}
+#trip-calendar-wrap{max-width:520px}
 #trip-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:10px}
-.cal-day{background:linear-gradient(180deg, #fff 0%, #fbfbfb 100%);border:1px solid rgba(0,0,0,0.04);border-radius:6px;padding:6px;min-height:48px;position:relative}
+.cal-day{background:linear-gradient(180deg, #fff 0%, #fbfbfb 100%);border:1px solid rgba(0,0,0,0.04);border-radius:6px;padding:6px;min-height:48px;position:relative;transition:background 180ms ease}
 .cal-day .day-num{position:absolute;top:6px;right:8px;font-size:0.78em;color:var(--muted)}
 .event-pill{display:block;padding:4px 6px;border-radius:6px;color:white;font-weight:700;font-size:0.78em;margin-top:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* when a day is colored by JS, make the day number white for contrast */
+.cal-day[style*="background:"] .day-num{color:#fff}
+.event-label{color:#fff}
 .day-header{font-weight:700;text-align:center;color:var(--muted);font-size:0.78em}
 #calendar-legend .legend-item{display:inline-flex;align-items:center;gap:6px;padding:6px;border-radius:6px;border:1px solid rgba(0,0,0,0.04);background:#fff;font-size:0.88em}
 .legend-swatch{width:12px;height:12px;border-radius:3px;display:inline-block}
