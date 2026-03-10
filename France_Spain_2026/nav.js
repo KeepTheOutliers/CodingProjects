@@ -143,4 +143,44 @@
       block.parentNode.replaceChild(details, block);
     }
   });
+
+  // --- Make destination leg-cards collapsible and compact ---
+  document.querySelectorAll('dl.leg-card').forEach(function(card) {
+    try {
+      var titleEl = card.querySelector('h3');
+      var titleHTML = titleEl ? titleEl.outerHTML : '';
+
+      // Build a short summary from Dates and Lodging fields (if present)
+      var divs = Array.from(card.querySelectorAll('div'));
+      var dateText = '';
+      var lodgingText = '';
+      divs.forEach(function(d) {
+        var dt = d.querySelector('dt');
+        var dd = d.querySelector('dd');
+        if (!dt || !dd) return;
+        var key = dt.textContent.trim().toLowerCase();
+        var val = dd.textContent.trim();
+        if (!dateText && key.indexOf('date') === 0) dateText = val;
+        if (!lodgingText && key.indexOf('lodg') === 0) lodgingText = val;
+      });
+
+      var summaryParts = [];
+      if (titleEl) summaryParts.push(titleEl.textContent.trim());
+      if (dateText) summaryParts.push(dateText);
+      if (lodgingText) summaryParts.push(lodgingText.replace(/\s+/g,' '));
+
+      var summaryHTML = '<strong style="margin-right:8px;">' + (summaryParts.shift() || '') + '</strong>' + (summaryParts.join(' · ') || '');
+
+      // Create details wrapper
+      var details = document.createElement('details');
+      details.className = 'leg-card';
+      details.innerHTML = '<summary>' + summaryHTML + '</summary><div class="leg-body">' + card.innerHTML.replace(/<h3[^>]*>.*?<\/h3>/i, '') + '</div>';
+
+      // Replace original dl with details
+      card.parentNode.replaceChild(details, card);
+    } catch (e) {
+      // if anything fails, leave the original card intact
+      console.warn('Could not make leg-card collapsible', e);
+    }
+  });
 })();
