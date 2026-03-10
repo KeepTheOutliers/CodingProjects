@@ -707,18 +707,20 @@ li { margin-bottom: 4px; }
   z-index: 2200;
   line-height: 0;
   opacity: 0.95;
-  width: 30px; /* 25% of previous 120px */
-  height: 30px;
+  width: 48px; /* increased to match more-detailed Eiffel SVG */
+  height: 48px;
 }
 
 /* Prevent internal elements from clipping absolutely-positioned icons */
 .rt-leg, .rt-stop { overflow: visible; }
 /* Make destination SVG icons larger for better readability */
-.rt-dest-icon svg {
+.rt-dest-icon svg,
+.rt-dest-icon img {
   width: 100% !important;
   height: 100% !important;
   display: block;
   pointer-events: none;
+  object-fit: contain;
 }
 .rt-name {
   position: absolute;
