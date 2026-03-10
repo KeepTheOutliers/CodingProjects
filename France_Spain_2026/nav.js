@@ -335,22 +335,33 @@
 
       // choose a single event to represent the day (first matching event)
       var cur = new Date(year, month, d);
-      var matched = null;
+      // collect all events that match this day, then pick by priority
+      var matches = [];
       for (var ei=0; ei<events.length; ei++){
         var ev = events[ei];
         var sd = new Date(ev.start.getFullYear(), ev.start.getMonth(), ev.start.getDate());
         var ed = new Date(ev.end.getFullYear(), ev.end.getMonth(), ev.end.getDate());
-        if (cur >= sd && cur <= ed) { matched = ev; break; }
+        if (cur >= sd && cur <= ed) { matches.push(ev); }
       }
-      if (matched) {
+      if (matches.length) {
+        // priority: stays (named destinations) first, then returns/flights, then first match
+        var preferNames = ['Paris','Saint-Émilion','Saint-Emilion','Lescun','San Sebastian','San Sebastián'];
+        function pickBest(list){
+          for (var i=0;i<preferNames.length;i++){
+            for (var j=0;j<list.length;j++) if ((list[j].title||'').indexOf(preferNames[i]) !== -1) return list[j];
+          }
+          for (var j=0;j<list.length;j++) if (/Return|Return to|Departure|flight|Flight|Return/i.test(list[j].title)) return list[j];
+          return list[0];
+        }
+        var matched = pickBest(matches);
         var color = map[matched.title] || '#888';
         // color entire day square
         cell.style.background = color;
-        cell.style.color = '#fff';
         cell.style.borderColor = "rgba(0,0,0,0.06)";
         var label = document.createElement('div');
         label.className = 'event-label';
-        label.style.color = '#fff';
+        // label text uses dark color to read on pale backgrounds
+        label.style.color = '#333';
         label.style.fontWeight = '400';
         label.style.marginTop = '18px';
         label.style.fontSize = '0.82em';
