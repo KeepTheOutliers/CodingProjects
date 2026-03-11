@@ -149,9 +149,14 @@
   // Run a pass after the window loads to force any existing maps to redraw.  Individual
   // pages may also call invalidateSize in more specific contexts (e.g. toggling details).
   window.addEventListener('load', function(){
-    document.querySelectorAll('.leaflet-container').forEach(function(el){
-      if(el._leaflet_map) el._leaflet_map.invalidateSize();
-    });
+    var doResize = function(){
+      document.querySelectorAll('.leaflet-container').forEach(function(el){
+        if(el._leaflet_map) el._leaflet_map.invalidateSize();
+      });
+    };
+    // run immediately, then again after layout settles
+    doResize();
+    setTimeout(doResize, 200);
   });
 
   // --- Make destination leg-cards collapsible and compact ---
