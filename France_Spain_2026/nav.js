@@ -153,22 +153,26 @@
       document.querySelectorAll('.leaflet-container').forEach(function(el){
         var mm = el._leaflet_map;
         if(!mm) return;
-        // ensure container size is correct
-        mm.invalidateSize();
+        // ensure container size is correct, force view reset too
+        mm.invalidateSize(true);
+        try {
+          mm.setView(mm.getCenter(), mm.getZoom(), {animate:false});
+        } catch(e) {}
         // force tile layers to refresh (fix grey/blank patches)
         mm.eachLayer(function(layer){
           if(layer instanceof L.TileLayer && layer.redraw) layer.redraw();
         });
         // tiny pan/push to coax any straggling tiles to load
         try {
-          mm.panBy([1,0], {animate:false});
-          mm.panBy([-1,0], {animate:false});
+          mm.panBy([2,0], {animate:false});
+          mm.panBy([-2,0], {animate:false});
         } catch(e){/* ignore */}
       });
     };
     // run immediately, then again after layout settles
     doResize();
     setTimeout(doResize, 200);
+    setTimeout(doResize, 1000);
   });
 
   // --- Make destination leg-cards collapsible and compact ---
