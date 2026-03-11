@@ -151,7 +151,19 @@
   window.addEventListener('load', function(){
     var doResize = function(){
       document.querySelectorAll('.leaflet-container').forEach(function(el){
-        if(el._leaflet_map) el._leaflet_map.invalidateSize();
+        var mm = el._leaflet_map;
+        if(!mm) return;
+        // ensure container size is correct
+        mm.invalidateSize();
+        // force tile layers to refresh (fix grey/blank patches)
+        mm.eachLayer(function(layer){
+          if(layer instanceof L.TileLayer && layer.redraw) layer.redraw();
+        });
+        // tiny pan/push to coax any straggling tiles to load
+        try {
+          mm.panBy([1,0], {animate:false});
+          mm.panBy([-1,0], {animate:false});
+        } catch(e){/* ignore */}
       });
     };
     // run immediately, then again after layout settles
