@@ -144,6 +144,16 @@
     }
   });
 
+  // --- global map resize helper ---
+  // Leaflet sometimes renders grey tiles when the container is hidden or not yet laid out.
+  // Run a pass after the window loads to force any existing maps to redraw.  Individual
+  // pages may also call invalidateSize in more specific contexts (e.g. toggling details).
+  window.addEventListener('load', function(){
+    document.querySelectorAll('.leaflet-container').forEach(function(el){
+      if(el._leaflet_map) el._leaflet_map.invalidateSize();
+    });
+  });
+
   // --- Make destination leg-cards collapsible and compact ---
   document.querySelectorAll('dl.leg-card').forEach(function(card) {
     try {
