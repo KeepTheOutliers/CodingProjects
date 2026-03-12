@@ -2,6 +2,117 @@
    France & Spain 2026 — Shared Navigation + Utils
    ============================================ */
 (function() {
+      // --- Pau Map Initialization ---
+      function initPauMap() {
+        var mapEl = document.getElementById('map-pau');
+        if (!mapEl) return;
+        mapEl.style.background = '#fff'; // Match other map backgrounds
+        // Pau city center
+        var pauCenter = [43.295194, -0.375595];
+        var map = L.map(mapEl).setView(pauCenter, 15);
+        L.tileLayer('https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+          attribution: '&copy; CartoDB, OpenStreetMap contributors',
+          maxZoom: 19
+        }).addTo(map);
+
+        // Markers
+        var stops = [
+          {
+            name: 'Parking Verdun',
+            latlng: [43.298778, -0.376000],
+            desc: 'Convenient central garage and easy starting point for the walk.',
+            emoji: '🅿️'
+          },
+          {
+            name: 'Château de Pau',
+            latlng: [43.295194, -0.375595],
+            desc: 'National Museum, birthplace of Henry IV.',
+            emoji: '🏰'
+          },
+          {
+            name: 'Boulevard des Pyrénées',
+            latlng: [43.293276, -0.369132],
+            desc: 'Terrace with sweeping views of the Pyrenees.',
+            emoji: '🌄'
+          },
+          {
+            name: 'Les Halles de Pau',
+            latlng: [43.299378, -0.368919],
+            desc: 'Casual lunch or groceries/snacks for Lescun.',
+            emoji: '🥗'
+          }
+        ];
+        stops.forEach(function(stop) {
+          L.marker(stop.latlng, {
+            icon: L.divIcon({
+              className: 'pau-marker',
+              html: '<span style="font-size:2em;">' + stop.emoji + '</span>',
+              iconSize: [32, 32],
+              iconAnchor: [16, 32]
+            })
+          }).addTo(map)
+            .bindPopup('<strong>' + stop.name + '</strong><br>' + stop.desc);
+        });
+      }
+
+      // Run Pau map initialization after DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPauMap);
+      } else {
+        initPauMap();
+      }
+    // --- Image modal/lightbox for timeline block images ---
+    function createImageModal(src, alt) {
+      var modal = document.createElement('div');
+      modal.className = 'timeline-image-modal';
+      modal.style.position = 'fixed';
+      modal.style.top = '0';
+      modal.style.left = '0';
+      modal.style.width = '100vw';
+      modal.style.height = '100vh';
+      modal.style.background = 'rgba(0,0,0,0.7)';
+      modal.style.display = 'flex';
+      modal.style.alignItems = 'center';
+      modal.style.justifyContent = 'center';
+      modal.style.zIndex = '9999';
+      modal.style.cursor = 'pointer';
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = alt || '';
+      // Make Château de Pau image larger
+      if (src.indexOf('chateau_de_pau') !== -1) {
+        img.style.maxWidth = '1200px';
+        img.style.maxHeight = '90vh';
+      } else {
+        img.style.maxWidth = '90vw';
+        img.style.maxHeight = '90vh';
+      }
+      img.style.borderRadius = '12px';
+      img.style.boxShadow = '0 4px 32px rgba(0,0,0,0.3)';
+      modal.appendChild(img);
+      modal.addEventListener('click', function() {
+        document.body.removeChild(modal);
+      });
+      document.body.appendChild(modal);
+    }
+
+    // Attach click handler to timeline block images
+    function enableTimelineImageExpand() {
+      document.querySelectorAll('.timeline img, .expandable-timeline-img').forEach(function(img) {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function(e) {
+          e.stopPropagation();
+          createImageModal(img.src, img.alt);
+        });
+      });
+    }
+
+    // Run after DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', enableTimelineImageExpand);
+    } else {
+      enableTimelineImageExpand();
+    }
   'use strict';
 
   // --- Inject site-wide navigation bar ---
@@ -36,7 +147,6 @@
     var bodyHTML = '';
     var title = '';
 
-    var imagesHTML = '';
     Array.from(block.childNodes).forEach(function(node) {
       if (node.nodeType === 3) { sumHTML += node.textContent; return; }
       if (!node.tagName) return;
@@ -45,52 +155,21 @@
         sumHTML += node.outerHTML + ' ';
         return;
       }
-
-      // If the node contains images, extract them so they can be shown
-      // outside the collapsed body while preserving the remaining text.
-      var imgs = node.querySelectorAll && node.querySelectorAll('img');
-      if (imgs && imgs.length) {
-        imgs.forEach(function(img) { imagesHTML += img.outerHTML; });
-        // create a shallow clone and remove images before serializing
-        try {
-          var clone = node.cloneNode(true);
-          clone.querySelectorAll('img').forEach(function(i) { i.remove(); });
-          if (clone.textContent && !title && (tag === 'p' || tag === 'ul')) {
-            if (block.dataset.title) {
-              title = block.dataset.title;
-            } else {
-              var strong = clone.querySelector && clone.querySelector('strong');
-              if (strong) {
-                title = strong.textContent.replace(/\.\s*$/, '');
-              } else {
-                var txt = clone.textContent.trim();
-                if (txt.length > 50) txt = txt.substring(0, 47) + '\u2026';
-                title = txt;
-              }
-            }
-          }
-          if (clone.outerHTML) bodyHTML += clone.outerHTML;
-        } catch (e) {
-          // fallback: include original node if cloning fails
-          bodyHTML += node.outerHTML;
-        }
-      } else {
-        if (!title && (tag === 'p' || tag === 'ul')) {
-          if (block.dataset.title) {
-            title = block.dataset.title;
+      if (!title && (tag === 'p' || tag === 'ul')) {
+        if (block.dataset.title) {
+          title = block.dataset.title;
+        } else {
+          var strong = node.querySelector && node.querySelector('strong');
+          if (strong) {
+            title = strong.textContent.replace(/\.\s*$/, '');
           } else {
-            var strong = node.querySelector && node.querySelector('strong');
-            if (strong) {
-              title = strong.textContent.replace(/\.\s*$/, '');
-            } else {
-              var txt = node.textContent.trim();
-              if (txt.length > 50) txt = txt.substring(0, 47) + '\u2026';
-              title = txt;
-            }
+            var txt = node.textContent.trim();
+            if (txt.length > 50) txt = txt.substring(0, 47) + '\u2026';
+            title = txt;
           }
         }
-        bodyHTML += node.outerHTML;
       }
+      bodyHTML += node.outerHTML;
     });
 
     // --- Ensure images inside existing <details> remain visible ---
@@ -128,74 +207,7 @@
     details.className = block.className;
     details.innerHTML = '<summary>' + sumHTML.trim() + '</summary><div class="tb-body">' + bodyHTML + '</div>';
 
-    // If we extracted images, render them as a sibling element outside the
-    // <details> so they remain visible whether the details are open or closed.
-    if (imagesHTML.trim()) {
-      var wrapper = document.createElement('div');
-      wrapper.className = 'time-block-with-media';
-      var imgContainer = document.createElement('div');
-      imgContainer.className = 'timeline-images';
-      imgContainer.innerHTML = imagesHTML;
-      wrapper.appendChild(details);
-      wrapper.appendChild(imgContainer);
-      block.parentNode.replaceChild(wrapper, block);
-    } else {
-      block.parentNode.replaceChild(details, block);
-    }
-  });
-
-  // --- global map resize helper ---
-  // Leaflet sometimes renders grey tiles when the container is hidden or not yet laid out.
-  // Run a pass after the window loads to force any existing maps to redraw.  Individual
-  // pages may also call invalidateSize in more specific contexts (e.g. toggling details).
-  // attempt to rebuild maps entirely if the grey patch persists
-  function rebuildMapElement(el) {
-    var mm = el._leaflet_map;
-    if (!mm) return;
-    var center = mm.getCenter();
-    var zoom = mm.getZoom();
-    // capture tile layers and other layers so we can re-add them
-    var saved = [];
-    mm.eachLayer(function(l) { saved.push(l); });
-    // remove old map instance
-    mm.remove();
-    var newm = L.map(el.id, {scrollWheelZoom: true}).setView(center, zoom);
-    // reattach tile layers first, then everything else
-    saved.forEach(function(l) { newm.addLayer(l); });
-    // swap reference so later code still works
-    el._leaflet_map = newm;
-  }
-
-  window.addEventListener('load', function(){
-    var doResize = function(){
-      document.querySelectorAll('.leaflet-container').forEach(function(el){
-        var mm = el._leaflet_map;
-        if(!mm) return;
-        // ensure container size is correct, force view reset too
-        mm.invalidateSize(true);
-        try {
-          mm.setView(mm.getCenter(), mm.getZoom(), {animate:false});
-        } catch(e) {}
-        // force tile layers to refresh (fix grey/blank patches)
-        mm.eachLayer(function(layer){
-          if(layer instanceof L.TileLayer && layer.redraw) layer.redraw();
-        });
-        // tiny pan/push to coax any straggling tiles to load
-        try {
-          mm.panBy([2,0], {animate:false});
-          mm.panBy([-2,0], {animate:false});
-        } catch(e){/* ignore */}
-      });
-    };
-    // run immediately, then again after layout settles
-    doResize();
-    setTimeout(doResize, 200);
-    setTimeout(doResize, 1000);
-    // final brutal pass: rebuild the map entirely in case anything
-    // at the low level was corrupted.  this runs after the other delays
-    setTimeout(function(){
-      document.querySelectorAll('.leaflet-container').forEach(rebuildMapElement);
-    }, 300);
+    block.parentNode.replaceChild(details, block);
   });
 
   // --- Make destination leg-cards collapsible and compact ---
